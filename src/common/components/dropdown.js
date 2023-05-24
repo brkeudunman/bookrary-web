@@ -2,7 +2,7 @@ import React from "react";
 import { Dropdown, Space } from "antd";
 import { useNavigate } from "react-router-dom";
 
-const DropdownRouteMenu = ({ items, children }) => {
+const DropdownRouteMenu = ({ items, children, onHover }) => {
   const navigate = useNavigate();
 
   const onClick = ({ key }) => {
