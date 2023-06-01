@@ -10,21 +10,19 @@ const contentStyle = {
 
 const BasicCarousel = () => {
   return (
-    <Carousel autoplaySpeed={2000} autoplay>
+    <Carousel autoplaySpeed={5000} autoplay>
       <div>
         <div
           className="flex flex-col gap-5 p-12 font-montserrat font-bold bg-[#FFF4C6]"
           style={contentStyle}
         >
-          <p className="text-2xl md:text-4xl">How To?</p>
-          <span className="md:text-lg flex gap-3 overflow-scroll md:overflow-auto">
-            <p className="flex-wrap scroll">
-              1 - Lorem ipsum dolor sit amet, Ut enim ad minima veniam, quis
-              nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
-              aliquid ex ea commodi consequatur? Quis autem vel eum iure
-              reprehenderit quiea commodi consequatur? Quis autem vel eum iure
-              reprehenderit qea commodi consequatur? Quis autem vel eum iure
-              reprehenderit q
+          <p className="text-2xl md:text-4xl underline text-[#3BC3FF]">
+            How To?
+          </p>
+          <span className="md:text-2xl flex gap-3 overflow-scroll md:overflow-auto">
+            <p className="flex-wrap scroll text-[#3BC3FF]">
+              1 - You can search for the books you want to purchase and when you
+              find them, you can add them to your cart and purchase them.
             </p>
           </span>
         </div>
@@ -34,13 +32,13 @@ const BasicCarousel = () => {
           className="flex flex-col gap-5 p-12 font-montserrat font-bold bg-[#FFF0B4]"
           style={contentStyle}
         >
-          <p className="text-2xl md:text-4xl">How To?</p>
-          <span className="md:text-lg flex gap-3 overflow-scroll md:overflow-auto">
+          <p className="text-2xl md:text-4xl underline text-[#3BC3FF]">
+            How To?
+          </p>
+          <span className="md:text-2xl flex gap-3 overflow-scroll md:overflow-auto text-[#3BC3FF]">
             <p>
-              2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              do eiusm eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti atque corrupti quos
-              dolores et quas molestias exceptu
+              2 - After the purchase, you need to collect your new books within
+              three hours from the library that the seller decided.
             </p>
           </span>
         </div>
@@ -50,13 +48,14 @@ const BasicCarousel = () => {
           className="flex flex-col gap-5 p-12 font-montserrat font-bold bg-[#FFEB9D]"
           style={contentStyle}
         >
-          <p className="text-2xl md:text-4xl">How To?</p>
-          <span className="md:text-lg flex gap-3 overflow-scroll md:overflow-auto">
+          <p className="text-2xl md:text-4xl underline text-[#3BC3FF]">
+            How To?
+          </p>
+          <span className="md:text-2xl flex gap-3 overflow-scroll md:overflow-auto text-[#3BC3FF]">
             <p>
-              3 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              do eiusm ed ut perspiciatis unde omnis iste natus error sit
-              voluptatem accusantium doloremque laudantium, totam rem aperiam,
-              eaque ipsa quae ab illo inventore veritatis et quasi architecto be
+              3 - If you can not collect your newly purchased books in three
+              hours, conguratulations!!! You do not need to worry, you just
+              donated those books to the stated library.
             </p>
           </span>
         </div>
