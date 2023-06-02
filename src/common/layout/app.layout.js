@@ -1,9 +1,8 @@
 import React from "react";
+import AltNavbar from './../components/navbar/alt-navbar';
 import Navbar from "../components/navbar/navbar";
-import AltNavbar from "../components/navbar/alt-navbar";
 
-
-const PublicLayout = ({ children }) => {
+const AppLayout = ({children}) => {
   return (
     <>
       <Navbar />
@@ -15,4 +14,4 @@ const PublicLayout = ({ children }) => {
   );
 };
 
-export default PublicLayout;
+export default AppLayout;

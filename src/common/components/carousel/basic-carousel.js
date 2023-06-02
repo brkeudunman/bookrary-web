@@ -13,13 +13,13 @@ const BasicCarousel = () => {
     <Carousel autoplaySpeed={5000} autoplay>
       <div>
         <div
-          className="flex flex-col gap-5 p-12 font-montserrat font-bold bg-[#FFF4C6]"
+          className="flex flex-col gap-5 p-12 font-montserrat font-bold bg-[#FFF4C6] h-full"
           style={contentStyle}
         >
           <p className="text-2xl md:text-4xl underline text-[#3BC3FF]">
             How To?
           </p>
-          <span className="md:text-2xl flex gap-3 overflow-scroll md:overflow-auto">
+          <span className="h-full md:text-2xl flex gap-3 overflow-scroll md:overflow-auto">
             <p className="flex-wrap scroll text-[#3BC3FF]">
               1 - You can search for the books you want to purchase and when you
               find them, you can add them to your cart and purchase them.
@@ -35,7 +35,7 @@ const BasicCarousel = () => {
           <p className="text-2xl md:text-4xl underline text-[#3BC3FF]">
             How To?
           </p>
-          <span className="md:text-2xl flex gap-3 overflow-scroll md:overflow-auto text-[#3BC3FF]">
+          <span className="h-full md:text-2xl flex gap-3 overflow-scroll md:overflow-auto text-[#3BC3FF]">
             <p>
               2 - After the purchase, you need to collect your new books within
               three hours from the library that the seller decided.
@@ -51,7 +51,7 @@ const BasicCarousel = () => {
           <p className="text-2xl md:text-4xl underline text-[#3BC3FF]">
             How To?
           </p>
-          <span className="md:text-2xl flex gap-3 overflow-scroll md:overflow-auto text-[#3BC3FF]">
+          <span className="h-full md:text-2xl flex gap-3 overflow-scroll md:overflow-auto text-[#3BC3FF]">
             <p>
               3 - If you can not collect your newly purchased books in three
               hours, conguratulations!!! You do not need to worry, you just
