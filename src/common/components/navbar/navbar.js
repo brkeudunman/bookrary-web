@@ -41,7 +41,7 @@ const appDropItems = [
 const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   // Todo: Buraya kullanıcı bilgilerini al hook'u yazılacak.
 
   const showDrawer = () => {

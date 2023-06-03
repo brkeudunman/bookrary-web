@@ -4,7 +4,7 @@ const isLogged = false;
 
 function App() {
   return (
-    <div className="App bg-[#F7FCFF] w-screen h-screen font-montserrat">
+    <div className="App bg-[#F7FCFF] font-montserrat">
       {isLogged ? <div></div> : <PublicRoutes />}
     </div>
   );
