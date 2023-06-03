@@ -52,16 +52,16 @@ const GenreContent = () => {
 
 const CityButton = ({ text, to }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col col-span-1 items-center gap-2">
       <OptionButton
         className={
-          "p-3 text-lg font-bold text-[#565555] text-center hover:bg-yellow-100 hover:shadow-xl bg-yellow-200 rounded-md"
+          "p-3 w-full text-lg font-bold text-[#565555] text-center hover:bg-yellow-100 hover:shadow-xl bg-yellow-200 rounded-md"
         }
         text={to}
-        to={"01"}
+        to={to}
         city
       />
-      <p>{text}</p>
+      <p className="text-center">{text}</p>
     </div>
   );
 };
