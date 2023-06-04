@@ -24,4 +24,9 @@ export const dataAuthors = [
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Madeline_Miller_-_Kolkata_2013-02-03_4377_Cropped.JPG/800px-Madeline_Miller_-_Kolkata_2013-02-03_4377_Cropped.JPG",
   },
+  {
+    author: "J. R. R. Tolkien",
+    image:
+      "http://www.ithaki.com.tr/wp-content/uploads/2017/06/j-r-r-tolkien.jpg",
+  },
 ];
