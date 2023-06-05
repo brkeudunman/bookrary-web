@@ -4,5 +4,15 @@
 @layer base {
     html {
       @apply font-montserrat;
+      @apply h-screen
+    }
+    body{
+      @apply h-full
+    }
+    #root{
+      @apply h-full
+    }
+    .App{
+      @apply h-full
     }
   }

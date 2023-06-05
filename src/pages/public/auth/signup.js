@@ -1,11 +1,29 @@
 import { Button, Form, Input } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AccountRecomendationView from "../../../common/view/accountRecommendation";
+import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 
 const SignUp = () => {
+  const [ico, setIco] = useState(<ArrowDownOutlined />);
   const onFinish = (values) => {
     console.log("Success:", values);
+  };
+  const scrollBehaviour = () => {
+    const isAtBottom =
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight;
+
+    if (isAtBottom) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIco(<ArrowDownOutlined />);
+    } else {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+      });
+      setIco(<ArrowUpOutlined />);
+    }
   };
   return (
     <div className="md:flex mx-10 md:mx-20 mt-20 items-center ">
@@ -54,7 +72,20 @@ const SignUp = () => {
         </Form>
       </div>
       <div className="md:mt-0 mt-20 md:flex md:flex-1 md:justify-center">
-        <AccountRecomendationView />
+        <AccountRecomendationView
+          description={"asdsadas"}
+          title={"asasdsads"}
+        />
+      </div>
+      <div className="md:hidden rounded-full bg-blue-500 block fixed bottom-4 right-4">
+        <Button
+          shape="circle"
+          type="primary"
+          size="large"
+          onClick={scrollBehaviour}
+        >
+          <span className="flex justify-center items-center">{ico}</span>
+        </Button>
       </div>
     </div>
   );
