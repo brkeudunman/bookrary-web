@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import AccountRecomendationView from "../../../common/view/accountRecommendation";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 
+const description =
+  "Don't worry you can create your account in seconds with us! After you join us you can browse, buy, and sell books. Have fun already!";
+
 const SignUp = () => {
   const [ico, setIco] = useState(<ArrowDownOutlined />);
   const onFinish = (values) => {
@@ -25,6 +28,7 @@ const SignUp = () => {
       setIco(<ArrowUpOutlined />);
     }
   };
+
   return (
     <div className="md:flex mx-10 md:mx-20 mt-20 items-center ">
       <div className="flex-1 text-center md:text-start ">
@@ -73,8 +77,8 @@ const SignUp = () => {
       </div>
       <div className="md:mt-0 mt-20 md:flex md:flex-1 md:justify-center">
         <AccountRecomendationView
-          description={"asdsadas"}
-          title={"asasdsads"}
+          description={description}
+          title={"Don't Have An Account?"}
         />
       </div>
       <div className="md:hidden rounded-full bg-blue-500 block fixed bottom-4 right-4">

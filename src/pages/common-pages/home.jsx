@@ -9,15 +9,8 @@ const dataGenres = [
   "Action",
   "Romance",
   "Thriller",
-  "Historical",
-  "Historical",
-  "Historical",
-  "Historical",
-  "Historical",
 ];
 const dataAuthors = [
-  "Jane Austen",
-  "Jane Austen",
   "Jane Austen",
   "Jane Austen",
   "Jane Austen",
@@ -80,7 +73,6 @@ const Home = () => {
             },
           ]}
           title={"New Releases in Books"}
-          
         />
 
         <CardsView
@@ -100,7 +92,6 @@ const Home = () => {
           isTop
         />
       </div>
-
     </div>
   );
 };

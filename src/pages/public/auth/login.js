@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AccountRecomendationView from "../../../common/view/accountRecommendation";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
-import { useLogin } from './../../../hooks/auth';
+import { useLogin } from "./../../../hooks/auth";
+
+const description =
+  "Don't worry you can create your account in seconds with us! After you join us you can browse, buy, and sell books. Have fun already!";
 
 const LogIn = () => {
   const [ico, setIco] = useState(<ArrowDownOutlined />);
@@ -83,8 +86,8 @@ const LogIn = () => {
       </div>
       <div className="md:mt-0 mt-20 md:flex md:flex-1 md:justify-center">
         <AccountRecomendationView
-          description={"xxxxxx"}
-          title={"Have An Account?"}
+          description={description}
+          title={"Welcome Back!"}
         />
       </div>
       <div className="md:hidden rounded-full bg-blue-500 block fixed bottom-4 right-4">

@@ -76,20 +76,12 @@ const CityContent = () => {
       <div className="grid grid-cols-10 gap-y-5 gap-x-4">
         <CityButton text={"Adana"} to={"01"} />
         <CityButton text={"Ankara"} to={"06"} />
-        <CityButton text={"Antalya"} to={"09"} />
+        <CityButton text={"Antalya"} to={"07"} />
+        <CityButton text={"Aydın"} to={"09"} />
         <CityButton text={"Istanbul"} to={"34"} />
         <CityButton text={"Izmir"} to={"35"} />
         <CityButton text={"Manisa"} to={"45"} />
-        <CityButton text={"Aydın"} to={"01"} />
-        <CityButton text={"Muğla"} to={"01"} />
-        <CityButton text={"Adana"} to={"01"} />
-        <CityButton text={"Adana"} to={"01"} />
-        <CityButton text={"Adana"} to={"01"} />
-        <CityButton text={"Adana"} to={"01"} />
-        <CityButton text={"Adana"} to={"01"} />
-        <CityButton text={"Adana"} to={"01"} />
-        <CityButton text={"Adana"} to={"01"} />
-        <CityButton text={"Adana"} to={"01"} />
+        <CityButton text={"Muğla"} to={"48"} />
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import Home from "../common-pages/home";
 import PublicLayout from "../../common/layout/public.layout";
 import SignUp from "./auth/signup";
 import LogIn from "./auth/login";
+import Cart from "../common-pages/cart/cart";
 
 const PublicRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const PublicRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="cart" element={<Cart />} />
       </Routes>
     </PublicLayout>
   );
