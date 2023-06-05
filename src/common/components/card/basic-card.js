@@ -36,8 +36,8 @@ const ItemContent = ({ title, author, location, seller }) => {
       </div>
 
       <div className="flex gap-x-3 justify-between">
-        <p className="font-bold">{title}</p>
-        <p>{author}</p>
+        <p className="font-bold text-gray-700">{title}</p>
+        <p className="text-gray-500">{author}</p>
       </div>
       <div>
         <p>{location}</p>

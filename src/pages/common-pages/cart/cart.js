@@ -6,9 +6,9 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import { useState } from "react";
-import Payment from "./payment";
-import Result from "./result";
-import CartItemList from "./cartItemList";
+import Payment from "./cartPages/payment";
+import Result from "./cartPages/result";
+import CartItemList from "./cartPages/cartItemList";
 
 const steps = [
   {

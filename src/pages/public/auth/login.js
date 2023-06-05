@@ -52,7 +52,7 @@ const LogIn = () => {
         </span>
 
         <Form className="md:w-4/5 mt-8" onFinish={onFinish}>
-          <Form.Item name={"e-mail"}>
+          <Form.Item name={"email"}>
             <Input placeholder="E-mail" />
           </Form.Item>
           <Form.Item name={"password"}>

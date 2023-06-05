@@ -1,6 +1,6 @@
 import React from "react";
-import BasicCarousel from "../../common/components/carousel/basic-carousel";
-import CardsView from "../../common/view/cardsView";
+import BasicCarousel from "../../../common/components/carousel/basic-carousel";
+import CardsView from "../../../common/view/cardsView";
 
 const dataGenres = [
   "Sci-Fi",
