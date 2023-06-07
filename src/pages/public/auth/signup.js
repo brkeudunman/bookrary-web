@@ -1,16 +1,19 @@
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, Select } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import AccountRecomendationView from "../../../common/view/accountRecommendation";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
+import { useRegister } from "../../../hooks/auth";
+import { Option } from "antd/es/mentions";
 
 const description =
   "Don't worry you can create your account in seconds with us! After you join us you can browse, buy, and sell books. Have fun already!";
 
 const SignUp = () => {
   const [ico, setIco] = useState(<ArrowDownOutlined />);
+  const { mutate } = useRegister();
   const onFinish = (values) => {
-    console.log("Success:", values);
+    mutate(values);
   };
   const scrollBehaviour = () => {
     const isAtBottom =
@@ -28,6 +31,24 @@ const SignUp = () => {
       setIco(<ArrowUpOutlined />);
     }
   };
+  const options = [
+    {
+      value: 1,
+      label: "Izmir Yüksek Teknoloji Enstitüsü Kütüphane",
+    },
+  ];
+
+  const prefixSelector = (
+
+      <Select
+        style={{
+          width: 70,
+        }}
+      >
+        <Option value="90">+90</Option>
+      </Select>
+
+  );
 
   return (
     <div className="md:flex mx-10 md:mx-20 mt-20 items-center ">
@@ -45,17 +66,102 @@ const SignUp = () => {
         </span>
 
         <Form className="md:w-4/5 mt-8" onFinish={onFinish}>
-          <Form.Item name={"name"}>
+          <Form.Item
+            rules={[
+              {
+                required: true,
+                message: "Name is required",
+              },
+            ]}
+            name={"firstName"}
+          >
             <Input placeholder="Name" />
           </Form.Item>
-          <Form.Item name={"surname"}>
+          <Form.Item
+            rules={[
+              {
+                required: true,
+                message: "Surname is required",
+              },
+            ]}
+            name={"lastName"}
+          >
             <Input placeholder="Surname" />
           </Form.Item>
-          <Form.Item name={"e-mail"}>
+          <Form.Item
+            rules={[
+              {
+                required: true,
+                message: "Email is required",
+              },
+            ]}
+            name={"email"}
+          >
             <Input placeholder="E-mail" />
           </Form.Item>
-          <Form.Item name={"password"}>
+          <Form.Item
+            name="phoneNumber"
+            rules={[
+              {
+                required: true,
+                message: "Please input your phone number!",
+              },
+            ]}
+          >
+            <Input
+              placeholder="Phone Number"
+              addonBefore={prefixSelector}
+              style={{
+                width: "100%",
+              }}
+            />
+          </Form.Item>
+          <Form.Item
+            rules={[
+              {
+                required: true,
+                message: "Password is required",
+              },
+            ]}
+            name={"password"}
+          >
             <Input.Password placeholder="Password" />
+          </Form.Item>
+          <Form.Item
+            name="passwordAgain"
+            dependencies={["password"]}
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: "Please confirm your password!",
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue("password") === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(
+                    new Error("The new password that you entered do not match!")
+                  );
+                },
+              }),
+            ]}
+          >
+            <Input.Password placeholder="Confirm Password" />
+          </Form.Item>
+          <Form.Item name={"libraryId"}>
+            <Select
+              showSearch
+              placeholder="Select a Library"
+              optionFilterProp="children"
+              filterOption={(input, option) =>
+                (option?.label ?? "")
+                  .toLowerCase()
+                  .includes(input.toLowerCase())
+              }
+              options={options}
+            />
           </Form.Item>
           <Form.Item>
             <span>
