@@ -3,8 +3,8 @@ import CartItem from "../../../../common/components/cart/cartItem";
 
 const CartItemList = () => {
   return (
-    <div className="flex justify-between">
-      <div className="bg-[#ECF9FF] flex flex-col rounded-md">
+    <div className="bg-[#ECF9FF]  justify-between w-full">
+      <div className="flex flex-col rounded-md">
         <CartItem />
         <CartItem />
         <CartItem />
