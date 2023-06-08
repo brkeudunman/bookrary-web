@@ -21,7 +21,6 @@ const Payment = () => {
           />
           <img
             style={{
-              position: "relative",
               bottom: "30px",
               left: "250px",
               zIndex: "2",

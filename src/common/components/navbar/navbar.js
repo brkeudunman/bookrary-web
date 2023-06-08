@@ -5,6 +5,7 @@ import DropdownRouteMenu from "../dropdown";
 import { CartIco, PersonIco } from "./navicons";
 import { MenuOutlined } from "@ant-design/icons";
 import MobileDrawer from "../drawer";
+import Logo from "../../../assets/Bookrary (1).png";
 
 const publicDropItems = [
   {
@@ -34,7 +35,7 @@ const appDropItems = [
     label: "Exit",
     key: "2",
     to: "",
-    danger:true,
+    danger: true,
   },
 ];
 
@@ -49,7 +50,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="flex justify-between sm:px-14 px-2 sm:gap-3 gap-1 py-2 bg-[#3BC3FF] w-full">
+      <div className="flex justify-between sm:px-14 px-2 sm:gap-3 gap-1 py-2 bg-[#3BC3FF] w-full  h-fit">
         <div className="drawer sm:hidden bg-white rounded-lg">
           <Button size="large" type="text" onClick={showDrawer}>
             <MenuOutlined />
@@ -62,16 +63,16 @@ const Navbar = () => {
             navigate("/");
           }}
         >
-          Bookrary
+          <img src={Logo} className="md:w-20 md:h-16 h-12 w-16" alt="" />
         </div>
         <div className="input hidden sm:flex rounded-lg items-center px-2 bg-slate-300 flex-1">
           <Input className="h-3/4" />
         </div>
         <div className="flex sm:gap-3 gap-1">
           {!isLoggedIn ? (
-            <div className="sign-button sm:w-fit">
+            <div className="sign-button sm:w-fit h-full">
               <DropdownRouteMenu items={publicDropItems}>
-                <div className="flex border p-2 rounded-md bg-white gap-x-2">
+                <div className="flex border p-2 rounded-md bg-white gap-x-2 h-fit">
                   <div className="flex items-center  sm:w-fit">
                     <PersonIco className="w-6 sm:w-fit" />
                   </div>

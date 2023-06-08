@@ -40,6 +40,24 @@ const Home = () => {
               location: "Urla, İzmir - Urla Halk Kütüp.",
               seller: "Berke Udunman",
             },
+            {
+              title: "Kuyucakli Yusuf",
+              author: "Sabahattin Ali",
+              location: "Urla, İzmir - Urla Halk Kütüp.",
+              seller: "Berke Udunman",
+            },
+            {
+              title: "Kuyucakli Yusuf",
+              author: "Sabahattin Ali",
+              location: "Urla, İzmir - Urla Halk Kütüp.",
+              seller: "Berke Udunman",
+            },
+            {
+              title: "Kuyucakli Yusuf",
+              author: "Sabahattin Ali",
+              location: "Urla, İzmir - Urla Halk Kütüp.",
+              seller: "Berke Udunman",
+            },
 
             {
               title: "Kuyucakli Yusuf",
