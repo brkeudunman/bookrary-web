@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import { login } from "../api/auth/auth";
+import { login, register } from "../api/auth/auth";
 import { notification } from "antd";
 
 export const useLogin = (onSuccess) => {
@@ -27,6 +27,29 @@ export const useLogin = (onSuccess) => {
         }
 
         console.log(response);
+      },
+    }
+  );
+};
+
+export const useRegister = (onSuccess) => {
+  return useMutation(
+    (userCredentials) => {
+      return register(userCredentials);
+    },
+    {
+      mutationKey: "register",
+      onSuccess: () => {
+        notification.success({
+          description: "You have been successfully registered!",
+          message: "Success!",
+        });
+      },
+      onError: (error) => {
+        notification.error({
+          description: error.message,
+          message: error.status,
+        });
       },
     }
   );
