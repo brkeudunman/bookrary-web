@@ -63,7 +63,7 @@ const Navbar = () => {
             navigate("/");
           }}
         >
-          <img src={Logo} className="md:w-20 md:h-16 h-12 w-16" alt="" />
+          <img src={Logo} className="md:w-20 md:h-14 h-12 w-16" alt="" />
         </div>
         <div className="input hidden sm:flex rounded-lg items-center px-2 bg-slate-300 flex-1">
           <Input className="h-3/4" />
@@ -85,7 +85,7 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="sign-button sm:w-fit">
-              <DropdownRouteMenu items={appDropItems}>
+              <DropdownRouteMenu  items={appDropItems}>
                 <div className="flex border p-2 rounded-md bg-white gap-x-2">
                   <div className="flex items-center  sm:w-fit">
                     <PersonIco className="w-6 sm:w-fit" />
