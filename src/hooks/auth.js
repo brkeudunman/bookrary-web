@@ -1,8 +1,10 @@
 import { useMutation } from "react-query";
 import { login, register } from "../api/auth/auth";
 import { notification } from "antd";
+import { useNavigate } from "react-router-dom";
 
 export const useLogin = (onSuccess) => {
+  const navigate = useNavigate();
   return useMutation(
     (userCredentials) => {
       return login(userCredentials);
@@ -16,6 +18,8 @@ export const useLogin = (onSuccess) => {
         window.localStorage.setItem("name", response.name ?? "");
         window.localStorage.setItem("surname", response.surname ?? "");
         window.dispatchEvent(new Event("storage"));
+
+        navigate("/");
         onSuccess();
       },
 
@@ -48,7 +52,7 @@ export const useRegister = (onSuccess) => {
       onError: (error) => {
         notification.error({
           description: error.message,
-          message: error.status,
+          message: "An Error Has Occured",
         });
       },
     }
@@ -56,6 +60,8 @@ export const useRegister = (onSuccess) => {
 };
 
 export const useLogOutUserMe = (onSuccess) => {
+  const navigate = useNavigate();
+
   return () => {
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("id");
@@ -63,6 +69,7 @@ export const useLogOutUserMe = (onSuccess) => {
     window.localStorage.removeItem("name");
     window.localStorage.removeItem("surname");
     window.dispatchEvent(new Event("storage"));
+    navigate("/");
     onSuccess();
   };
 };

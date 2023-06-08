@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Badge, Button, Input } from "antd";
+import { Badge, Button, Input, message } from "antd";
 import DropdownRouteMenu from "../dropdown";
 import { CartIco, PersonIco } from "./navicons";
 import { MenuOutlined } from "@ant-design/icons";
 import MobileDrawer from "../drawer";
 import Logo from "../../../assets/Bookrary (1).png";
+import getToken from "../../../util/get-token";
+import { useLogOutUserMe } from "../../../hooks/auth";
 
 const publicDropItems = [
   {
@@ -20,29 +22,40 @@ const publicDropItems = [
   },
 ];
 
-const appDropItems = [
-  {
-    label: "View Profile",
-    key: "0",
-    to: "profile",
-  },
-  {
-    label: "Update Profile",
-    key: "1",
-    to: "update",
-  },
-  {
-    label: "Exit",
-    key: "2",
-    to: "",
-    danger: true,
-  },
-];
-
 const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const isLoggedIn = false;
+  const logout = useLogOutUserMe(() =>
+    message.success("You have been successfully logged out")
+  );
+  const appDropItems = [
+    {
+      label: "View Profile",
+      key: "0",
+      to: "profile",
+    },
+    {
+      label: "Update Profile",
+      key: "1",
+      to: "update",
+    },
+    {
+      label: (
+        <div
+          onClick={() => {
+            window.location.reload();
+            logout();
+          }}
+        >
+          Logout
+        </div>
+      ),
+      key: "2",
+      to: "",
+      danger: true,
+    },
+  ];
+  const isLoggedIn = getToken();
   // Todo: Buraya kullanıcı bilgilerini al hook'u yazılacak.
 
   const showDrawer = () => {
@@ -85,7 +98,7 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="sign-button sm:w-fit">
-              <DropdownRouteMenu  items={appDropItems}>
+              <DropdownRouteMenu items={appDropItems}>
                 <div className="flex border p-2 rounded-md bg-white gap-x-2">
                   <div className="flex items-center  sm:w-fit">
                     <PersonIco className="w-6 sm:w-fit" />
