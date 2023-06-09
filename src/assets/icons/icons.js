@@ -1,8 +1,8 @@
 export const BookmarkIcon = ({ className }) => {
   return (
     <svg
-      width="14"
-      height="18"
+      width="20"
+      height="26"
       viewBox="0 0 14 18"
       fill="none"
       className={className}

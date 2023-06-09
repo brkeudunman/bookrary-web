@@ -59,16 +59,20 @@ const Cart = () => {
           <Steps current={current} items={items} />
         </Col>
       </Row>
-      <Row align={"top"} justify={"center"}>
-        <Col span={18} sm={12} md={18} xs={12}>
+      <Row align={"top"} justify={"center"} gutter={[24, 12]}>
+        <Col span={24} md={20} lg={current !== 2 ? 17 : 24}>
           <div style={contentStyle}>{steps[current].content}</div>
         </Col>
 
-        <Col span={6}>
-          <div className="mt-6 ml-4 flex flex-col justify-center">
-            <div className="bg-[#DBF4FF] flex flex-col justify-center rounded-md text-lg">
-              <h3 className="text-center m-2">Cart Summary</h3>
-              <div className="bg-[#F7FCFF] rounded-md py-2 px-6 m-4">
+        <Col span={24} md={20} lg={6} xl={6}>
+          <div
+            className={`flex flex-col justify-center ${
+              current === 2 && `hidden`
+            }`}
+          >
+            <div className="bg-[#DBF4FF] flex flex-col justify-center text-lg rounded-md border p-3 gap-4 md:mt-4">
+              <h3 className="text-center ">Cart Summary</h3>
+              <div className="bg-[#F7FCFF] rounded-md py-2 px-6 ">
                 <h4>Base Price</h4>
                 <h4>YYY TL</h4>
                 <h4>Taxes</h4>
@@ -78,7 +82,7 @@ const Cart = () => {
                   <h4>XXXXX TL</h4>
                 </div>
               </div>
-              <div className="m-4 flex flex-col">
+              <div className="flex flex-col">
                 {current === steps.length - 3 && (
                   <Button
                     className="bg-[#7AD6FF] text-white flex-1"

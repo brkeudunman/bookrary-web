@@ -6,7 +6,7 @@ import CardBack from "../../../../assets/credit-card-back 1.png";
 
 const Payment = () => {
   return (
-    <div className="bg-[#ECF9FF] flex flex-col justify-center items-center rounded-md">
+    <div className="bg-[#ECF9FF] flex flex-col justify-center items-center rounded-md leading-normal">
       <div className="bg-white rounded-md flex flex-col items-start my-14 mx-10 px-12">
         <h1 className="text-black font-bold">Enter the Payment Details</h1>
         <div className="border-4 rounded-lg p-10 mb-12">
@@ -42,8 +42,8 @@ const Payment = () => {
             <Input className="bg-[#D9D9D9]" />
             <img src={PaymentMethod} alt="" width={"257px"} height={"38px"} />
           </Form.Item>
-          <div className="flex justify-around">
-            <Form.Item label="Expire Date">
+          <div className="flex gap-4 justify-around">
+            <Form.Item label={<div className="flex flex-wrap">Expire Date</div>}>
               <Input className="bg-[#D9D9D9]" />
             </Form.Item>
             <Form.Item label="CCV">
