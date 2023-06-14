@@ -114,7 +114,7 @@ const Navbar = () => {
             <Link to={"./cart"}>
               <Badge
                 className="flex"
-                count={0}
+                count={2}
                 offset={[5, 0]}
                 showZero
                 color="#DBF4FF"
