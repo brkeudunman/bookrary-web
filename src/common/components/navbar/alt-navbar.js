@@ -99,11 +99,9 @@ const AltNavbar = () => {
       </Popover>
 
       <Popover placement="bottom" content={<CityContent />}>
-        <Link to={"/cities"}>
-          <Button className="bg-gray-100 px-20 font-montserrat font-medium">
-            Cities
-          </Button>
-        </Link>
+        <Button className="bg-gray-100 px-20 font-montserrat font-medium">
+          Cities
+        </Button>
       </Popover>
     </div>
   );

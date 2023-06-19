@@ -1,23 +1,8 @@
 import React from "react";
 import BasicCarousel from "../../../common/components/carousel/basic-carousel";
 import CardsView from "../../../common/view/cardsView";
+import { dataAuthors, dataBooks, dataGenres } from "../../../temp/data";
 
-const dataGenres = [
-  "Sci-Fi",
-  "Adventure",
-  "Mythology",
-  "Action",
-  "Romance",
-  "Thriller",
-];
-const dataAuthors = [
-  "Jane Austen",
-  "Jane Austen",
-  "Jane Austen",
-  "Jane Austen",
-  "Jane Austen",
-  "Jane Austen",
-];
 
 const Home = () => {
   return (
@@ -27,69 +12,7 @@ const Home = () => {
       </div>
       <div className="flex flex-col gap-20 bg-[#F7FCFF]">
         <CardsView
-          data={[
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-            {
-              title: "Kuyucakli Yusuf",
-              author: "Sabahattin Ali",
-              location: "Urla, İzmir - Urla Halk Kütüp.",
-              seller: "Berke Udunman",
-            },
-          ]}
+          data={dataBooks}
           title={"New Releases in Books"}
         />
 

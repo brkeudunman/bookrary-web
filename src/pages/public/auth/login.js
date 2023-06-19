@@ -52,10 +52,30 @@ const LogIn = () => {
         </span>
 
         <Form className="md:w-4/5 mt-8" onFinish={onFinish}>
-          <Form.Item name={"email"}>
+          <Form.Item
+            rules={[
+              {
+                type: "email",
+                message: "Input should be a email!",
+              },
+              {
+                message: "Email should be given!",
+                required: true,
+              },
+            ]}
+            name={"email"}
+          >
             <Input placeholder="E-mail" />
           </Form.Item>
-          <Form.Item name={"password"}>
+          <Form.Item
+            rules={[
+              {
+                message: "Password should be given!",
+                required: true,
+              },
+            ]}
+            name={"password"}
+          >
             <Input.Password placeholder="Password" />
           </Form.Item>
           <Form.Item>

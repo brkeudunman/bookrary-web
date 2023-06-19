@@ -39,15 +39,13 @@ const SignUp = () => {
   ];
 
   const prefixSelector = (
-
-      <Select
-        style={{
-          width: 70,
-        }}
-      >
-        <Option value="90">+90</Option>
-      </Select>
-
+    <Select
+      style={{
+        width: 70,
+      }}
+    >
+      <Option value="90">+90</Option>
+    </Select>
   );
 
   return (
@@ -150,7 +148,15 @@ const SignUp = () => {
           >
             <Input.Password placeholder="Confirm Password" />
           </Form.Item>
-          <Form.Item name={"libraryId"}>
+          <Form.Item
+            rules={[
+              {
+                message: "Library should be selected!",
+                required: true,
+              },
+            ]}
+            name={"libraryId"}
+          >
             <Select
               showSearch
               placeholder="Select a Library"

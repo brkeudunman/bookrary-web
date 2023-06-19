@@ -12,6 +12,10 @@ module.exports = {
         lato: ["Lato"],
         garamond: ["Garamond"],
       },
+      screens: {
+        mini: "420px",
+        // => @media (min-width: 640px) { ... }
+      },
     },
   },
   plugins: [],
