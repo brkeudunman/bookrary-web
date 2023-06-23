@@ -1,9 +1,7 @@
 import React from "react";
 import BasicBreadCrumb from "../../../common/components/breadcrumb/breadcrumb";
-import CardsView from "../../../common/view/cardsView";
 import { dataBooks } from "../../../temp/data";
-import BasicCard from "../../../common/components/card/basic-card";
-import { ItemContent } from "semantic-ui-react";
+import BookCard from "../../../common/components/card/book-card";
 
 const GenresPage = () => {
   return (
@@ -24,7 +22,7 @@ const GenresPage = () => {
 
       <div className="grid grid-cols-1 mini:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 order-3">
         {dataBooks.map((val, idx) => (
-          <BasicCard children={val}/>
+          <BookCard book={val}/>
         ))}
       </div>
     </div>
