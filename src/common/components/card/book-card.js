@@ -4,9 +4,9 @@ import React from "react";
 
 const BookCard = ({ book, background }) => {
   return (
-    <div className="inline-block p-2 bg-[#FFFBEB] rounded-md">
+    <div className="inline-block p-2 bg-[#FFFBEB] rounded-md hover:shadow-sm border">
       <div
-        className="flex justify-center bg-cover bg-fixed text-white font-bold  "
+        className="flex justify-center bg-cover bg-fixed text-white font-bold  px-2 "
         style={{
           backgroundImage: `url(${background})`,
         }}
