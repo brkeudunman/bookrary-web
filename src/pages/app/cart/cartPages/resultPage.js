@@ -1,6 +1,6 @@
 import React from "react";
 
-const Result = () => {
+const ResultPage = () => {
   return (
     <div className="bg-[#ECF9FF] flex flex-col justify-center items-center rounded-md leading-normal">
       <div className="bg-white rounded-md flex flex-col justify-center items-center my-14 mx-10 px-12">
@@ -29,4 +29,4 @@ const Result = () => {
   );
 };
 
-export default Result;
+export default ResultPage;
