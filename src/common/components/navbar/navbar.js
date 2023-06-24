@@ -8,6 +8,7 @@ import MobileDrawer from "../drawer";
 import Logo from "../../../assets/Bookrary (1).png";
 import getToken from "../../../util/get-token";
 import { useLogOutUserMe } from "../../../hooks/auth";
+import { useCart } from "../cart/cartProvider";
 
 const publicDropItems = [
   {
@@ -21,9 +22,10 @@ const publicDropItems = [
     to: "sign-up",
   },
 ];
-
+// Might be refactored too, 24,06,2023
 const Navbar = () => {
   const navigate = useNavigate();
+  const items = useCart();
   const [open, setOpen] = useState(false);
   const logout = useLogOutUserMe(() =>
     message.success("You have been successfully logged out")
@@ -114,7 +116,7 @@ const Navbar = () => {
             <Link to={"./cart"}>
               <Badge
                 className="flex"
-                count={2}
+                count={items.length}
                 offset={[5, 0]}
                 showZero
                 color="#DBF4FF"

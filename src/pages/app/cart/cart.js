@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Button, Col, message, Row, Steps, theme } from "antd";
 import {
   ShoppingCartOutlined,
@@ -9,6 +9,7 @@ import Payment from "./cartPages/payment";
 import Result from "./cartPages/resultPage";
 import CartItemList from "./cartPages/cartItemList";
 import getToken from "../../../util/get-token";
+import { useCart } from "../../../common/components/cart/cartProvider";
 
 const steps = [
   {
@@ -28,7 +29,7 @@ const steps = [
   },
 ];
 
-const CartManagementPanel = ({ setCurrent, current }) => {
+const CartManagementPanel = ({ totalPrice, setCurrent, current }) => {
   const userToken = getToken();
   const next = () => {
     setCurrent(current + 1);
@@ -44,12 +45,12 @@ const CartManagementPanel = ({ setCurrent, current }) => {
         <h3 className="text-center ">Cart Summary</h3>
         <div className="bg-[#F7FCFF] rounded-md py-2 px-6 ">
           <h4>Base Price</h4>
-          <h4>YYY TL</h4>
+          <h4>{totalPrice} TL</h4>
           <h4>Taxes</h4>
-          <h4>XXX TL</h4>
+          <h4>0 TL</h4>
           <div className="text-xl font-semibold">
             <h4>Total Price</h4>
-            <h4>XXXXX TL</h4>
+            <h4>{totalPrice} TL</h4>
           </div>
         </div>
         <div className="flex flex-col">
@@ -117,8 +118,15 @@ const CartPage = ({ currentPage }) => {
 
 const Cart = () => {
   const [current, setCurrent] = useState(0);
+  const items = useCart();
+  var totalPrice = 0;
+  useEffect(() => {
+    items.map((item) => {
+      totalPrice = totalPrice + item.price;
+    });
+  }, []);
 
-  const items = steps.map((item) => ({
+  const stepItems = steps.map((item) => ({
     key: item.title,
     title: item.title,
     icon: item.icon,
@@ -128,7 +136,7 @@ const Cart = () => {
     <div className="px-12 pt-9 bg-white">
       <Row align={"middle"} justify={"center"}>
         <Col span={24} md={12} lg={12} xl={8}>
-          <Steps current={current} items={items} />
+          <Steps current={current} items={stepItems} />
         </Col>
       </Row>
       <Row align={"top"} justify={"center"} gutter={[24, 12]}>
@@ -137,7 +145,11 @@ const Cart = () => {
         </Col>
 
         <Col span={24} md={20} lg={6} xl={6}>
-          <CartManagementPanel current={current} setCurrent={setCurrent} />
+          <CartManagementPanel
+            totalPrice={totalPrice}
+            current={current}
+            setCurrent={setCurrent}
+          />
         </Col>
       </Row>
     </div>
