@@ -9,7 +9,10 @@ import Payment from "./cartPages/payment";
 import Result from "./cartPages/resultPage";
 import CartItemList from "./cartPages/cartItemList";
 import getToken from "../../../util/get-token";
-import { useCart } from "../../../common/components/cart/cartProvider";
+import {
+  useCart,
+  useDispatchCart,
+} from "../../../common/components/cart/cartProvider";
 
 const steps = [
   {
@@ -29,7 +32,7 @@ const steps = [
   },
 ];
 
-const CartManagementPanel = ({ totalPrice, setCurrent, current }) => {
+const CartManagementPanel = ({ onFinish, totalPrice, setCurrent, current }) => {
   const userToken = getToken();
   const next = () => {
     setCurrent(current + 1);
@@ -37,6 +40,7 @@ const CartManagementPanel = ({ totalPrice, setCurrent, current }) => {
   const prev = () => {
     setCurrent(current - 1);
   };
+
   return (
     <div
       className={`flex flex-col justify-center ${current === 2 && `hidden`}`}
@@ -59,7 +63,7 @@ const CartManagementPanel = ({ totalPrice, setCurrent, current }) => {
               className="bg-[#7AD6FF] text-white flex-1"
               size="large"
               type="primary"
-              disabled={!userToken}
+              disabled={!userToken || !totalPrice}
               onClick={() => next()}
             >
               Submit Cart
@@ -70,7 +74,7 @@ const CartManagementPanel = ({ totalPrice, setCurrent, current }) => {
               className="bg-[#7AD6FF] text-white flex-1"
               size="large"
               type="primary"
-              onClick={() => next()}
+              onClick={onFinish}
             >
               Submit Order
             </Button>
@@ -119,12 +123,18 @@ const CartPage = ({ currentPage }) => {
 const Cart = () => {
   const [current, setCurrent] = useState(0);
   const items = useCart();
+  const dispatch = useDispatchCart();
   var totalPrice = 0;
-  useEffect(() => {
-    items.map((item) => {
-      totalPrice = totalPrice + item.price;
-    });
-  }, []);
+
+  items.map((item) => {
+    return (totalPrice = totalPrice + item.data.price);
+  });
+
+  const onSuccessOrder = () => {
+    message.success("Order is success!", 2);
+    setCurrent(current + 1);
+    dispatch({ type: "CLEAR"});
+  };
 
   const stepItems = steps.map((item) => ({
     key: item.title,
@@ -133,7 +143,7 @@ const Cart = () => {
   }));
 
   return (
-    <div className="px-12 pt-9 bg-white">
+    <div className="px-12 pt-9 bg-white h-screen">
       <Row align={"middle"} justify={"center"}>
         <Col span={24} md={12} lg={12} xl={8}>
           <Steps current={current} items={stepItems} />
@@ -149,6 +159,7 @@ const Cart = () => {
             totalPrice={totalPrice}
             current={current}
             setCurrent={setCurrent}
+            onFinish={onSuccessOrder}
           />
         </Col>
       </Row>

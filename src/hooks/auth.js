@@ -20,6 +20,7 @@ export const useLogin = (onSuccess) => {
         window.dispatchEvent(new Event("storage"));
 
         navigate("/");
+        window.location.reload()
         onSuccess();
       },
 
@@ -37,6 +38,7 @@ export const useLogin = (onSuccess) => {
 };
 
 export const useRegister = (onSuccess) => {
+  const navigate = useNavigate();
   return useMutation(
     (userCredentials) => {
       return register(userCredentials);
@@ -48,6 +50,7 @@ export const useRegister = (onSuccess) => {
           description: "You have been successfully registered!",
           message: "Success!",
         });
+        navigate("/login");
       },
       onError: (error) => {
         notification.error({

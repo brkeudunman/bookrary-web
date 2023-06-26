@@ -1,7 +1,8 @@
 import PublicRoutes from "./pages/public";
 import AppRoutes from './pages/app/index';
+import getToken from "./util/get-token";
 
-const isLogged = false;
+const isLogged = getToken();
 
 function App() {
   return (

@@ -9,7 +9,7 @@ const PopularCategory = ({ background, data }) => {
           backgroundImage: `url(${background})`,
         }}
       >
-        <span className=" p-10">{data}</span>
+        <span className="p-7">{data}</span>
       </div>
     </div>
   );

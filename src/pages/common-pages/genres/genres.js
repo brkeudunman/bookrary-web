@@ -9,12 +9,8 @@ const GenresPage = () => {
       <div className="text-sm order-2 lg:order-1">
         <span className="font-bold ">Hi,</span>
         <br />
-        <br /> Introduce the project-library-book relationship hereIntroduce the
-        project-library-book relationship hereIntroduce the project-library-book
-        relationship hereIntroduce the project-library-book relationship
-        hereIntroduce the project-library-book relationship hereIntroduce the
-        project-library-book relationship hereIntroduce the project-library-book
-        relationship hereIntroduce the project-library-book relationship here
+        <br /> Welcome to Bookrary, in here you can search for your favourite
+        genres and books!
       </div>
       <div className=" order-1 lg:order-2">
         <BasicBreadCrumb />
