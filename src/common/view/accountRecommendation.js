@@ -7,10 +7,10 @@ const AccountRecomendationView = ({ description, title }) => {
   return (
     <div className="flex-1 flex-wrap box-content  p-12 rounded-3xl text-center border border-[#F8CBA6] bg-[#FFF4C6]">
       <div className="flex flex-col justify-center">
-        <h3 className="text-3xl md:text-5xl text-white underline mb-8 flex justify-center w-full">
+        <h3 className="text-3xl md:text-5xl text-[#343434]  underline mb-8 flex justify-center w-full">
           {title}
         </h3>
-        <p className="flex  text-white">{description}</p>
+        <p className="flex  text-[#343434] ">{description}</p>
       </div>
       <section className="overflow-scroll md:overflow-auto flex md:grid lg:grid-cols-3 grid-cols-2 gap-4 mt-8">
         {dataAuthors?.map((data) => (

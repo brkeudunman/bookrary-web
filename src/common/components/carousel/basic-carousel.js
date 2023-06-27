@@ -3,7 +3,7 @@ import React from "react";
 
 const BasicCarousel = () => {
   return (
-    <Carousel autoplaySpeed={5000} autoplay>
+    <Carousel className="" autoplaySpeed={5000} autoplay>
       <div>
         <div
           className="flex flex-col gap-5 p-12 font-montserrat font-bold bg-[#FFF4C6] h-full bg-cover bg-fixed"

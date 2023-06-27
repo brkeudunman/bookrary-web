@@ -27,6 +27,6 @@ export const dataAuthors = [
   {
     author: "J. R. R. Tolkien",
     image:
-      "http://www.ithaki.com.tr/wp-content/uploads/2017/06/j-r-r-tolkien.jpg",
+      "https://bibaktim.net/wp-content/uploads/2020/12/yazar-j-r-r-tolkien.jpg",
   },
 ];

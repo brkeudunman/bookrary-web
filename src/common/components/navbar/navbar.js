@@ -44,6 +44,7 @@ const Navbar = () => {
     {
       label: (
         <div
+          className="text-[#343434]"
           onClick={() => {
             window.location.reload();
             logout();
@@ -92,8 +93,8 @@ const Navbar = () => {
                     <PersonIco className="w-6 sm:w-fit" />
                   </div>
                   <div className="sm:flex flex-col gap-0.5 hidden">
-                    <p>Login</p>
-                    <p className="text-[#7AD6FF]">New Account</p>
+                    <p className="text-[#343434] font-medium">Login</p>
+                    <p className="text-[#7AD6FF] font-medium">New Account</p>
                   </div>
                 </div>
               </DropdownRouteMenu>
