@@ -1,7 +1,7 @@
 import { Drawer, Menu } from "antd";
 
 import React, { useState } from "react";
-
+// MOBILE DRAWER SHOULD BE FIX BY TAKING CATEGORIES DATA
 const MobileDrawer = ({ open, setOpen }) => {
   const onClose = () => {
     setOpen(false);

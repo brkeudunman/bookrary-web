@@ -45,7 +45,7 @@ const Navbar = () => {
     {
       label: (
         <div
-          className="text-[#343434]"
+          className="text-[#343434] hover:text-white"
           onClick={() => {
             window.location.reload();
             logout();
@@ -70,7 +70,7 @@ const Navbar = () => {
   return (
     <>
       <div className="flex justify-between sm:px-14 px-2 sm:gap-3 gap-1 py-2 bg-[#3BC3FF] w-full  h-fit">
-        <div className="drawer sm:hidden bg-white rounded-lg">
+        <div className="drawer sm:hidden bg-white rounded-lg ">
           <Button size="large" type="text" onClick={showDrawer}>
             <MenuOutlined />
           </Button>
@@ -89,7 +89,7 @@ const Navbar = () => {
         </div>
         <div className="flex sm:gap-3 gap-1">
           {!isLoggedIn ? (
-            <div className="sign-button sm:w-fit h-full">
+            <div className="sign-button sm:w-fit h-full hover:shadow-md">
               <DropdownRouteMenu items={publicDropItems}>
                 <div className="flex border p-2 rounded-md bg-white gap-x-2 h-fit">
                   <div className="flex items-center  sm:w-fit">
@@ -103,7 +103,7 @@ const Navbar = () => {
               </DropdownRouteMenu>
             </div>
           ) : (
-            <div className="sign-button sm:w-fit">
+            <div className="sign-button sm:w-fit hover:shadow-md">
               <DropdownRouteMenu items={appDropItems}>
                 <div className="flex border p-2 rounded-md bg-white gap-x-2">
                   <div className="flex items-center  sm:w-fit">
@@ -120,7 +120,7 @@ const Navbar = () => {
               </DropdownRouteMenu>
             </div>
           )}
-          <div className="cart-button sm:w-fit flex flex-col sm:px-4 px-1 justify-center items-center border bg-white rounded-md ">
+          <div className="cart-button sm:w-fit flex flex-col sm:px-4 px-1 justify-center items-center border bg-white rounded-md hover:shadow-md">
             <Link to={"./cart"}>
               <Badge
                 className="flex"
