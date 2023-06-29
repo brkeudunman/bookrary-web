@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Badge, Button, Input, message } from "antd";
+import { Badge, Button, Input, Spin, message } from "antd";
 import DropdownRouteMenu from "../dropdown";
 import { CartIco, PersonIco } from "./navicons";
 import { MenuOutlined } from "@ant-design/icons";
@@ -9,6 +9,7 @@ import Logo from "../../../assets/Bookrary (1).png";
 import getToken from "../../../util/get-token";
 import { useLogOutUserMe } from "../../../hooks/auth";
 import { useCart } from "../cart/cartProvider";
+import { useGetUser } from "../../../hooks/user";
 
 const publicDropItems = [
   {
@@ -59,7 +60,9 @@ const Navbar = () => {
     },
   ];
   const isLoggedIn = getToken();
-  // Todo: Buraya kullanıcı bilgilerini al hook'u yazılacak.
+  const { data: userData, isLoading } = useGetUser(
+    window.localStorage.getItem("id")
+  );
 
   const showDrawer = () => {
     setOpen(true);
@@ -106,9 +109,13 @@ const Navbar = () => {
                   <div className="flex items-center  sm:w-fit">
                     <PersonIco className="w-6 sm:w-fit" />
                   </div>
-                  <div className="sm:flex flex-col gap-0.5 hidden">
-                    <p className="text-[#7AD6FF] py-2">Berke Udunman</p>
-                  </div>
+                  <Spin spinning={isLoading}>
+                    <div className="sm:flex flex-col gap-0.5 hidden">
+                      <p className="text-[#7AD6FF] py-2">
+                        {userData?.firstName + " " + userData?.lastName}
+                      </p>
+                    </div>
+                  </Spin>
                 </div>
               </DropdownRouteMenu>
             </div>
@@ -117,7 +124,11 @@ const Navbar = () => {
             <Link to={"./cart"}>
               <Badge
                 className="flex"
-                count={<p className="font-bold text-white rounded-full bg-[#7AD6FF] p-1">{items.length}</p>}
+                count={
+                  <p className="font-bold text-white rounded-full bg-[#7AD6FF] p-1">
+                    {items.length}
+                  </p>
+                }
                 offset={[5, 0]}
                 showZero
                 color="#DBF4FF"
