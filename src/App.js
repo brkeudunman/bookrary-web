@@ -7,7 +7,7 @@ const isLogged = getToken();
 function App() {
   return (
     <div className="App bg-[#F7FCFF] font-montserrat ">
-      {isLogged ? <AppRoutes></AppRoutes> : <PublicRoutes />}
+      {isLogged ? <AppRoutes/> : <PublicRoutes />}
     </div>
   );
 }

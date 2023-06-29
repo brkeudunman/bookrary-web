@@ -6,6 +6,7 @@ import Cart from "./cart/cart";
 import Profile from "./profile/profile";
 import { NotFoundPage } from "../common-pages/err-page/notFoundPage";
 import GenresPage from "../common-pages/genres/genres";
+import ProfileUpdatePage from "./profile/profileUpdate";
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/genres" element={<GenresPage />} />
+        <Route path="/update" element={<ProfileUpdatePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </AppLayout>
