@@ -13,16 +13,21 @@ const GenresPage = () => {
         <br /> Welcome to Bookrary, in here you can search for your favourite
         genres and books!
       </div>
-      <Filters />
+
       <div className=" order-1 lg:order-2">
         <BasicBreadCrumb />
       </div>
 
-      <div className="grid grid-cols-1 mini:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 order-3">
-        {dataBooks.map((val, idx) => (
-          <BookCard book={val} />
-        ))}
+      <div className="order-3 flex justify-evenly ">
+        <Filters />
+        <div className="grid grid-cols-1 mini:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+          {dataBooks.map((val, idx) => (
+            <BookCard book={val} />
+          ))}
+        </div>
       </div>
+
+      <div></div>
     </div>
   );
 };
