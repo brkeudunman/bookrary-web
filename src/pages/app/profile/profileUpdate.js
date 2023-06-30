@@ -1,5 +1,5 @@
-import { Form, Input, Select } from "antd";
-import React from "react";
+import { Button, Form, Input, Popover, Select, notification } from "antd";
+import React, { useState } from "react";
 import SubmitButton from "../../../common/components/button/submit";
 import Cancel from "../../../common/components/button/cancel";
 import ProfileAvatar from "../../../common/components/profile/profile-avatar";
@@ -12,8 +12,7 @@ const ProfileUpdatePage = () => {
   const [form] = useForm();
   const userId = window.localStorage.getItem("id");
   const { mutate: updateUser, isLoading: isUpdating } = useUpdateUser();
-  const { data: libraries } = useGetLibraries();
-  console.log(libraries);
+  const { data: libraries, isLoading: isLibrariesLoading } = useGetLibraries();
 
   const {
     data: userData,
@@ -21,23 +20,31 @@ const ProfileUpdatePage = () => {
     isSuccess,
   } = useGetUser(userId);
   const handleFinish = (values) => {
-    console.log(values);
+    notification.success({
+      message:"Success!",
+      description:"Update is successfully done."
+    })// Bunu on Success olarak alıcaz.
   };
 
   return (
     <div className="flex flex-col justify-center px-16 pt-8">
       {isSuccess && (
         <Form
-          initialValues={{ ...userData, district: "1", city: "1" }}
+          initialValues={{
+            ...userData,
+            district: "1",
+            city: "1",
+            library: { id: userData?.library?.id }, // Set the library ID as the initial value
+          }}
           onFinish={handleFinish}
           form={form}
           className="border flex flex-col "
         >
-          <div className="flex justify-between">
-            <Form.Item>
+          <div className="flex sm:flex-row flex-col items-center justify-between">
+            <Form.Item className="w-full sm:w-fit" >
               <SubmitButton />
             </Form.Item>
-            <Form.Item>
+            <Form.Item className="w-full sm:w-fit" >
               <Cancel />
             </Form.Item>
           </div>
@@ -55,7 +62,9 @@ const ProfileUpdatePage = () => {
               </div>
             </div>
             <div className="flex flex-col flex-1">
-              {libraries && <ProfileUpdateFormContent libraries={[]} />}
+              {libraries && (
+                <ProfileUpdateFormContent libraries={libraries.content} />
+              )}
             </div>
           </div>
         </Form>
@@ -67,9 +76,9 @@ const ProfileUpdatePage = () => {
 export default ProfileUpdatePage;
 
 const ProfileUpdateFormContent = ({ libraries }) => {
-  console.log(libraries);
+  console.log(libraries, "addasdas");
   const inputStyle = "py-2"; // todo, buglı
-
+  const [isPasswordChange, setPasswordChange] = useState(false);
   return (
     <>
       <p className="underline font-semibold mb-1">Personal Information</p>
@@ -173,12 +182,12 @@ const ProfileUpdateFormContent = ({ libraries }) => {
               required: true,
             },
           ]}
-          getValueProps={(value) => ({ value: value.library?.id })}
+          getValueProps={(value) => ({ value: value.library?.name })}
           valuePropName="library"
         >
           <Select placeholder="Library">
             {libraries.map((library) => (
-              <Select.Option key={library?.id} value={library}>
+              <Select.Option key={library?.id} value={library?.id}>
                 {library?.name}
               </Select.Option>
             ))}
@@ -186,29 +195,59 @@ const ProfileUpdateFormContent = ({ libraries }) => {
         </Form.Item>
       </div>
       <p className="underline font-semibold mb-1">Password Change</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 mb-0 sm:mb-4 md:mb-6">
-        <Form.Item
-          name={"oldPassword"}
-          rules={[
-            {
-              message: "Old password must be entered!",
-              required: true,
-            },
-          ]}
-        >
-          <Input.Password className={inputStyle} placeholder="Old Password" />
-        </Form.Item>
-        <Form.Item
-          name={"newPassword"}
-          rules={[
-            {
-              message: "New password must be entered!",
-              required: true,
-            },
-          ]}
-        >
-          <Input.Password className={inputStyle} placeholder="New Password" />
-        </Form.Item>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-0 sm:mb-4 md:mb-6">
+        {!isPasswordChange ? (
+          <Button
+            className="border sm:col-span-2 transition-all"
+            type="default"
+            onClick={() => setPasswordChange(true)}
+          >
+            Want to change the password?
+          </Button>
+        ) : (
+          <button
+            className="border sm:col-span-2 bg-red-500 text-white hover:text-red-500 hover:border hover:bg-white hover:border-red-500 rounded-md py-1 active:shadow-sm shadow-sm transition-all"
+            type="default"
+            onClick={() => setPasswordChange(false)}
+          >
+            Do not want to change password?
+          </button>
+        )}
+
+        {isPasswordChange && (
+          <>
+            <Form.Item
+              className=""
+              name={"oldPassword"}
+              rules={[
+                {
+                  message: "Old password must be entered!",
+                  required: isPasswordChange,
+                },
+              ]}
+            >
+              <Input.Password
+                className={inputStyle}
+                placeholder="Old Password"
+              />
+            </Form.Item>
+            <Form.Item
+              name={"newPassword"}
+              rules={[
+                {
+                  message: "New password must be entered!",
+                  required: isPasswordChange,
+                },
+              ]}
+            >
+              <Input.Password
+                className={inputStyle}
+                placeholder="New Password"
+              />
+            </Form.Item>
+          </>
+        )}
       </div>
     </>
   );

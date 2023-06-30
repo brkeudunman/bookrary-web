@@ -6,7 +6,7 @@ const Cancel = ({ onClick }) => {
   return (
     <button
       onClick={onClick ? onClick : () => navigate("/")}
-      className="bg-[white] text-[#7AD6FF] px-12 py-1 border hover:border-[#7AD6FF] rounded-md ease-in-out  transition-all delay-75"
+      className="bg-[white] w-full text-[#7AD6FF] px-12 py-1 border hover:border-[#7AD6FF] rounded-md ease-in-out  transition-all delay-75"
     >
       Cancel
     </button>

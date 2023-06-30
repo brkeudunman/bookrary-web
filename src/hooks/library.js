@@ -4,7 +4,7 @@ import { notification } from "antd";
 
 export const useGetLibraries = (onSuccess) => {
   return useQuery(
-    "get-user",
+    "get-libraries",
     () => {
       return getLibraries();
     },
