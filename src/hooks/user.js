@@ -1,5 +1,5 @@
-import { useQuery } from "react-query";
-import { getStats, getUser } from "../api/user/user.api";
+import { useMutation, useQuery } from "react-query";
+import { getStats, getUser, updateUser } from "../api/user/user.api";
 import { notification } from "antd";
 
 export const useGetUser = (id, onSuccess) => {
@@ -36,4 +36,19 @@ export const useGetUserStats = (id, onSuccess) => {
       },
     }
   );
+};
+
+export const useUpdateUser = (onSuccess) => {
+  return useMutation({
+    mutationKey: "update-user",
+    mutationFn: (id) => {
+      return updateUser(id);
+    },
+    onError: (error) =>
+      notification.error({
+        description: error.message,
+        message: "An Error Has Occured while Updating the User ",
+      }),
+    onSuccess: onSuccess,
+  });
 };
