@@ -21,9 +21,9 @@ const ProfileUpdatePage = () => {
   } = useGetUser(userId);
   const handleFinish = (values) => {
     notification.success({
-      message:"Success!",
-      description:"Update is successfully done."
-    })// Bunu on Success olarak alıcaz.
+      message: "Success!",
+      description: "Update is successfully done.",
+    }); // Bunu on Success olarak alıcaz.
   };
 
   return (
@@ -38,13 +38,13 @@ const ProfileUpdatePage = () => {
           }}
           onFinish={handleFinish}
           form={form}
-          className="border flex flex-col "
+          className="flex flex-col "
         >
           <div className="flex sm:flex-row flex-col items-center justify-between">
-            <Form.Item className="w-full sm:w-fit" >
+            <Form.Item className="w-full sm:w-fit">
               <SubmitButton />
             </Form.Item>
-            <Form.Item className="w-full sm:w-fit" >
+            <Form.Item className="w-full sm:w-fit">
               <Cancel />
             </Form.Item>
           </div>
@@ -55,10 +55,10 @@ const ProfileUpdatePage = () => {
                 <ProfileAvatar size={175} />
               </div>
               <div className="border rounded-md p-4 flex flex-1 bg-[#B9E9FF] text-[#1E1E1E]">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna sint
-                occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum
+                With this page you can update your account credentials, and also
+                your password! Reminder: if you want your password to be secure,
+                you need to include at least one digit, a capital letter, and a
+                special character!
               </div>
             </div>
             <div className="flex flex-col flex-1">

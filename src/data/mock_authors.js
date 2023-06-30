@@ -26,7 +26,6 @@ export const dataAuthors = [
   },
   {
     author: "J. R. R. Tolkien",
-    image:
-      "https://bibaktim.net/wp-content/uploads/2020/12/yazar-j-r-r-tolkien.jpg",
+    image: "https://cdn.britannica.com/65/66765-050-63A945A7/JRR-Tolkien.jpg",
   },
 ];
