@@ -19,7 +19,7 @@ const GenresPage = () => {
       </div>
 
       <div className="order-3 flex flex-col mini:flex-row justify-evenly gap-x-4">
-        <div>
+        <div className="w-full">
           <Filters />
         </div>
 
