@@ -1,13 +1,15 @@
 import { Button, Popover } from "antd";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./popover.css";
+import { allGenres, trCities } from "../../../temp/data";
 
-const OptionButton = ({ city, genre, text, to, className }) => {
+const OptionButton = ({ text, to, className }) => {
+  console.log(text);
   return (
     <div>
-      <Link to={`./${(genre && "genres") ?? (city && "cities")}/${to}`}>
-        <span className={className}>{text} </span>
+      <Link to={to}>
+        <span className={className}>{text}</span>
       </Link>
     </div>
   );
@@ -22,47 +24,35 @@ const GenreContent = () => {
 
       <div className="mb-1.5">
         <OptionButton
-          genre
           className={"text-blue-400"}
-          to={""}
+          to={"/genres"}
           text={"All Genres..."}
         />
       </div>
 
       <div className="grid grid-cols-2 gap-x-20">
-        <OptionButton genre text={"Action"} to={"actionId"} />
-        <OptionButton genre text={"Adventure"} to={"adventureId"} />
-        <OptionButton genre text={"Classics"} to={"classicsId"} />
-        <OptionButton genre text={"Contemporary"} to={"contemporaryId"} />
-        <OptionButton genre text={"Fantasy"} to={"fantasyId"} />
-        <OptionButton genre text={"Historical"} to={"historicalId"} />
-        <OptionButton genre text={"Horror"} to={"horrorId"} />
-        <OptionButton genre text={"Mythology"} to={"mythologyId"} />
-        <OptionButton genre text={"Non-fiction"} to={"nonfictionId"} />
-        <OptionButton genre text={"Plays"} to={"playsId"} />
-        <OptionButton genre text={"Poetry"} to={"poetryId"} />
-        <OptionButton genre text={"Psychology"} to={"psychologyId"} />
-        <OptionButton genre text={"Romance"} to={"romanceId"} />
-        <OptionButton genre text={"Sci-Fi"} to={"scifiId"} />
-        <OptionButton genre text={"Thriller"} to={"thrillerId"} />
+        {allGenres.map((genre, index) => (
+          <OptionButton key={index} text={genre.name} to={genre.id} />
+        ))}
       </div>
     </div>
   );
 };
 
 const CityButton = ({ text, to }) => {
+  const navigate = useNavigate();
   return (
-    <div className="flex flex-col col-span-1 items-center gap-2">
-      <OptionButton
+    <span onClick={() => navigate(to)} className="col-span-3">
+      <button
         className={
-          "p-3 w-full text-lg font-bold text-[#565555] text-center hover:bg-yellow-100 hover:shadow-xl bg-yellow-200 rounded-md"
+          "w-full p-1 text-lg font-bold text-[#565555] text-center hover:bg-yellow-100 hover:shadow-xl bg-yellow-200 rounded-md"
         }
-        text={to}
         to={to}
-        city
-      />
+      >
+        {to}
+      </button>
       <p className="text-center">{text}</p>
-    </div>
+    </span>
   );
 };
 
@@ -73,15 +63,10 @@ const CityContent = () => {
         Pick the city to search books!
       </div>
 
-      <div className="grid grid-cols-10 gap-y-5 gap-x-4">
-        <CityButton text={"Adana"} to={"01"} />
-        <CityButton text={"Ankara"} to={"06"} />
-        <CityButton text={"Antalya"} to={"07"} />
-        <CityButton text={"Aydın"} to={"09"} />
-        <CityButton text={"Istanbul"} to={"34"} />
-        <CityButton text={"Izmir"} to={"35"} />
-        <CityButton text={"Manisa"} to={"45"} />
-        <CityButton text={"Muğla"} to={"48"} />
+      <div className="grid grid-cols-12 gap-2">
+        {trCities.map((city) => (
+          <CityButton text={city.name} to={city.id} />
+        ))}
       </div>
     </div>
   );

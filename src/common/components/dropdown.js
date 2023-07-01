@@ -6,22 +6,23 @@ const DropdownRouteMenu = ({ items, children, onHover }) => {
   const navigate = useNavigate();
 
   const onClick = ({ key }) => {
-    if(key!=="2"){
+    if (key !== "2") {
       navigate(`./${items[key]?.to}`);
     }
   };
 
   return (
     <Dropdown
+      onOverlayClick={() => {
+        return false;
+      }}
       className="rounded-md bg-White"
       menu={{
         items,
         onClick,
       }}
     >
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>{children}</Space>
-      </a>
+      <Space>{children}</Space>
     </Dropdown>
   );
 };

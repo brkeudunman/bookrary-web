@@ -1,6 +1,6 @@
 import React from "react";
 import BasicBreadCrumb from "../../../common/components/breadcrumb/breadcrumb";
-import { dataBooks } from "../../../temp/data";
+import { dataAllBooks } from "../../../temp/data";
 import BookCard from "../../../common/components/card/book-card";
 import Filters from "../../../common/components/filters/filters";
 
@@ -24,7 +24,7 @@ const GenresPage = () => {
         </div>
 
         <div className="grid grid-cols-2 mini:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mini:gap-6">
-          {dataBooks.map((val, idx) => (
+          {dataAllBooks.map((val, idx) => (
             <BookCard book={val} />
           ))}
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import BasicCarousel from "../../../common/components/carousel/basic-carousel";
-import { dataAuthors, dataBooks, dataGenres } from "../../../temp/data";
+import { dataAuthors, topBooks, topGenres } from "../../../temp/data";
 import BooksView from "./../../../common/view/booksView";
 import PopularCategoryView from "../../../common/view/popularCategoriesView.js";
 
@@ -11,7 +11,10 @@ const Home = () => {
         <BasicCarousel />
       </div>
       <div className="flex flex-col gap-20 bg-[#F7FCFF]">
-        <BooksView bookData={dataBooks} title={"New Releases in Books"} />
+        <div >
+        <BooksView bookData={topBooks} title={"New Releases in Books"} />
+        </div>
+       
 
         <PopularCategoryView
           categoriesData={dataAuthors}
@@ -21,7 +24,7 @@ const Home = () => {
           }
         />
         <PopularCategoryView
-          categoriesData={dataGenres}
+          categoriesData={topGenres}
           title={"Most Purchased/Donated Genres This Month"}
           background={
             "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1555447414i/44767458.jpg"

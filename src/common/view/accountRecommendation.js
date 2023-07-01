@@ -1,6 +1,5 @@
 import React from "react";
-
-import { dataAuthors } from "../../data/mock_authors";
+import { dataAuthors } from "../../temp/data";
 import { Avatar } from "antd";
 
 const AccountRecomendationView = ({ description, title }) => {
