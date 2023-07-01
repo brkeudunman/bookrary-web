@@ -27,7 +27,7 @@ const ItemContent = ({ data }) => {
     dispatch({ type: "ADD", item });
   };
   return data ? (
-    <span className="text-xs grid gap-y-3 px-2 font-normal">
+    <div className="text-xs grid gap-y-3 px-2 font-normal">
       <div className="flex-1 justify-center p-10 ">
         <img src={sample} alt="" />
       </div>
@@ -52,7 +52,7 @@ const ItemContent = ({ data }) => {
       >
         Add To Cart
       </Button>
-    </span>
+    </div>
   ) : (
     <Spin />
   );

@@ -42,7 +42,7 @@ const GenreContent = () => {
 const CityButton = ({ text, to }) => {
   const navigate = useNavigate();
   return (
-    <span onClick={() => navigate(to)} className="col-span-3">
+    <span onClick={() => navigate(to)} className="grid">
       <button
         className={
           "w-full p-1 text-lg font-bold text-[#565555] text-center hover:bg-yellow-100 hover:shadow-xl bg-yellow-200 rounded-md"
@@ -63,7 +63,7 @@ const CityContent = () => {
         Pick the city to search books!
       </div>
 
-      <div className="grid grid-cols-12 gap-2">
+      <div className="grid grid-cols-8 gap-2">
         {trCities.map((city) => (
           <CityButton text={city.name} to={city.id} />
         ))}
