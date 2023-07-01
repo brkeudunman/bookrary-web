@@ -1,97 +1,63 @@
 import React, { useEffect, useState } from "react";
-import { Checkbox, List, Slider, Table } from "antd";
+import { Checkbox, List, Slider } from "antd";
+import { allGenres, dataAuthors, trCities } from "../../../temp/data";
 
-const genreData = [
-  {
-    title: "Action",
-  },
-  {
-    title: "Historical",
-  },
-  {
-    title: "Mythology",
-  },
-  {
-    title: "Poetry",
-  },
-  {
-    title: "Romance",
-  },
-];
+const FilterByName = ({ title, data }) => {
+  return (
+    <FilterSection title={title}>
+      <Checkbox.Group style={{ width: "100%" }}>
+        <List
+          className="w-full"
+          itemLayout="horizontal"
+          dataSource={data}
+          renderItem={(item) => (
+            <List.Item
+              style={{
+                padding: "2px",
+              }}
+            >
+              <List.Item.Meta
+                avatar={<Checkbox value={item.name} />}
+                title={item.name}
+              />
+            </List.Item>
+          )}
+        />
+      </Checkbox.Group>
+    </FilterSection>
+  );
+};
+
+const FilterSection = ({ children, title }) => {
+  return (
+    <div className=" bg-white border border-gray-200 p-1 pl-2 pt-2 rounded-md">
+      <h4 className="font-medium underline mb-2">{title}</h4>
+      {children}
+    </div>
+  );
+};
 
 const Filters = () => {
   return (
     <div className="flex flex-row mini:flex-col rounded-md bg-[#FFFBEB] border border-stone-200 p-2 gap-y-5 text-sm">
-      <div className=" bg-white border border-gray-200 p-1 rounded-md">
-        <h4 className="font-medium underline">Filters</h4>
+      <FilterSection title={"Filters"}>
         <p className="text-xs">
           loremloreml oremloremlore mloremloremloremloremlore
           mloremloremloremlorem
         </p>
-      </div>
-      <div className=" bg-white border border-gray-200 p-1 rounded-md">
-        <h4 className="font-medium underline">Genres</h4>
-        <Checkbox.Group style={{ width: "100%" }}>
-          <List
-            itemLayout="horizontal"
-            dataSource={genreData}
-            renderItem={(item) => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={<Checkbox value={item.title} />}
-                  title={item.title}
-                />
-              </List.Item>
-            )}
-          />
-        </Checkbox.Group>
-      </div>
+      </FilterSection>
+      <FilterByName data={allGenres} title={"Genres"} />
+      <FilterByName data={dataAuthors} title={"Popular Authors"} />
+      <FilterByName data={trCities} title={"Cities"} />
 
-      <div className=" bg-white border border-gray-200 p-1 rounded-md">
-        <h4 className="font-medium underline">Authors</h4>
-        <Checkbox.Group style={{ width: "100%" }}>
-          <List
-            itemLayout="horizontal"
-            dataSource={genreData}
-            renderItem={(item) => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={<Checkbox value={item.title} />}
-                  title={item.title}
-                />
-              </List.Item>
-            )}
-          />
-        </Checkbox.Group>
-      </div>
-
-      <div className=" bg-white border border-gray-200 p-1 rounded-md">
-        <h4 className="font-medium underline">Cities</h4>
-        <Checkbox.Group style={{ width: "100%" }}>
-          <List
-            itemLayout="horizontal"
-            dataSource={genreData}
-            renderItem={(item) => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={<Checkbox value={item.title} />}
-                  title={item.title}
-                />
-              </List.Item>
-            )}
-          />
-        </Checkbox.Group>
-      </div>
-
-      <div className=" bg-white border border-gray-200 p-1 rounded-md">
-        <h4 className="font-medium underline">Price Range</h4>
+      <FilterSection title={"Price Range"}>
         <Slider
           range={{
             draggableTrack: true,
           }}
           defaultValue={[10, 50]}
         />
-      </div>
+      </FilterSection>
     </div>
   );
 };
