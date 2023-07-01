@@ -7,12 +7,19 @@ const MobileDrawer = ({ open, setOpen }) => {
     setOpen(false);
   };
 
+  const getDrawerStyle = () => {
+    const style = { position: "absolute" };
+    if (open) {
+      style.transform = undefined; // set to undefined here
+    }
+    return style;
+  };
+
   return (
     <Drawer
+      style={getDrawerStyle()}
       width={300}
-      title={<div className="flex justify-center">
-        Bookrary
-      </div>}
+      title={<div className="flex justify-center">Bookrary</div>}
       placement="left"
       closable={false}
       onClose={onClose}

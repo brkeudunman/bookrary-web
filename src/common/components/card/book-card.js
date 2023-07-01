@@ -21,7 +21,7 @@ const ItemContent = ({ data }) => {
   };
   return data ? (
     <div className="flex flex-col justify-between text-xs gap-y-3 px-2 font-normal h-full">
-      <div className="p-6">
+      <div className="mini:p-6 p-12">
         <img src={sample} alt="" />
       </div>
 
@@ -31,9 +31,9 @@ const ItemContent = ({ data }) => {
       </div>
       <div className="">
         <p className="text-black">{data.location}</p>
-        <div className="flex gap-8">
+        <div className="flex flex-col mini:flex-row justify-between lg:gap-8">
           <p className="text-[#3BC3FF] ">{data.seller}</p>
-          <p className="text-black text-base">{data.price}TL</p>
+          <p className="text-black text-base ">{data.price}TL</p>
         </div>
       </div>
 
