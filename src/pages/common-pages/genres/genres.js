@@ -18,9 +18,12 @@ const GenresPage = () => {
         <BasicBreadCrumb />
       </div>
 
-      <div className="order-3 flex justify-evenly ">
-        <Filters />
-        <div className="grid grid-cols-1 mini:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+      <div className="order-3 flex flex-col mini:flex-row justify-evenly gap-x-4">
+        <div>
+          <Filters />
+        </div>
+
+        <div className="grid grid-cols-2 mini:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mini:gap-6">
           {dataBooks.map((val, idx) => (
             <BookCard book={val} />
           ))}

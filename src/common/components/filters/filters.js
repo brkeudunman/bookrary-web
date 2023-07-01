@@ -21,7 +21,7 @@ const genreData = [
 
 const Filters = () => {
   return (
-    <div className="flex flex-col rounded-md bg-[#FFFBEB] border border-stone-200 p-2 gap-y-5 text-sm">
+    <div className="flex flex-row mini:flex-col rounded-md bg-[#FFFBEB] border border-stone-200 p-2 gap-y-5 text-sm">
       <div className=" bg-white border border-gray-200 p-1 rounded-md">
         <h4 className="font-medium underline">Filters</h4>
         <p className="text-xs">
