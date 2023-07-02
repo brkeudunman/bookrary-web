@@ -7,6 +7,7 @@ import LogIn from "./auth/login";
 import Cart from "../app/cart/cart"
 import GenresPage from "../common-pages/genres/genres";
 import { NotFoundPage } from "../common-pages/err-page/notFoundPage";
+import BookPage from "../common-pages/book/book";
 
 const PublicRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const PublicRoutes = () => {
         <Route path="/login" element={<LogIn />} />
         <Route path="cart" element={<Cart />} />
         <Route path="genres" element={<GenresPage />} />
+        <Route path="/book/:id" element={<BookPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </PublicLayout>

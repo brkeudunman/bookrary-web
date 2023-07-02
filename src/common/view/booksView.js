@@ -6,7 +6,7 @@ const BooksView = ({ bookData, title }) => {
       <p className="mb-8 text-lg font-bold">{title}</p>
       <Row className={" no-scrollbar flex-nowrap overflow-x-scroll gap-x-4 "}>
         {bookData.map((book, idx) => (
-          <Col span={3}>
+          <Col className="font-montserrat" span={3}>
             <BookCard book={book} />
           </Col>
         ))}
