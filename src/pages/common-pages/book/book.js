@@ -30,10 +30,10 @@ const BookPage = () => {
       </section>
 
       <section className="w-full flex">
-        <div className="basis-5/12">
+        <div className="basis-4/12 flex justify-center border rounded-md py-4">
           <img alt="book_cover" className="h-80" src={sample} />
         </div>
-        <div className="basis-7/12">
+        <div className="basis-8/12">
           <div className="flex flex-col">
             <div className="text-xl font-semibold">₺<span className="text-2xl">{bookData.price}</span></div>
             <div className="text-sm font-semibold">Seller:<span className="text-blue-400"> {bookData.seller}</span></div>
