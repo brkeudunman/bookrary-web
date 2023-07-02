@@ -31,7 +31,7 @@ const GenresPage = () => {
               <FilterOutlined />
             </div>
           </div>
-          <span className={openFilters ? "block" : "hidden"}>
+          <span className={openFilters ? "block md:hidden" : "hidden"}>
             <Filters />
           </span>
         </div>

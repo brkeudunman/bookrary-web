@@ -1,5 +1,5 @@
 import React from "react";
-import sample from "../../../assets/book_cover.jpg";
+import sample from "../../../assets/sample.png";
 import { BookmarkIcon } from "../../../assets/icons/icons";
 import { Button } from "antd";
 
@@ -7,7 +7,7 @@ const CartItem = ({ bookData, index, handleRemove }) => {
   const data = bookData.data;
   return (
     <div className="w-full block md:flex md:w-full md:p-0">
-      <div className="bg-white p-2 sm:p-6 md:p-2 rounded-t-md">
+      <div className="bg-white p-2 sm:p-6 md:p-2 rounded-t-md flex flex-col justify-center  ">
         <img
           className="rounded-t-md md:rounded-md w-full md:w-40"
           src={sample}
@@ -21,7 +21,7 @@ const CartItem = ({ bookData, index, handleRemove }) => {
             <h2>{data.author}</h2>
           </div>
           <div className="flex flex-col items-start ">
-            <strong className="">{data.location}</strong>
+            <strong className="text-start">{data.location}</strong>
             <h3 className="text-[#7AD6FF]">{data.seller}</h3>
           </div>
           <div className="flex justify-between gap-4">

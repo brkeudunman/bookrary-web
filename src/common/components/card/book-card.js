@@ -21,7 +21,7 @@ const ItemContent = ({ data }) => {
   };
   return data ? (
     <div className="flex flex-col justify-between text-xs gap-y-3 px-2 font-normal h-full">
-      <div className="mini:p-6 p-12">
+      <div className=" p-6">
         <img src={sample} alt="" />
       </div>
 
