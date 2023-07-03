@@ -3,7 +3,6 @@ import BasicBreadCrumb from "../../../common/components/breadcrumb/breadcrumb";
 import { dataAllBooks } from "../../../temp/data";
 import BookCard from "../../../common/components/card/book-card";
 import Filters from "../../../common/components/filters/filters";
-import { Button, Drawer } from "antd";
 import { FilterOutlined } from "@ant-design/icons";
 
 const GenresPage = () => {
