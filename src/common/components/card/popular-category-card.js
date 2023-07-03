@@ -4,12 +4,12 @@ const PopularCategory = ({ background, data }) => {
   return (
     <div className="inline-block p-2  bg-[#FFFBEB] rounded-md hover:shadow-md">
       <div
-        className="flex justify-center bg-cover bg-fixed text-white font-bold  "
+        className="flex h-full p-6 items-center justify-center bg-cover bg-fixed text-white font-bold  "
         style={{
           backgroundImage: `url(${background})`,
         }}
       >
-        <span className="p-7">{data.name}</span>
+        <p className="md:whitespace-nowrap">{data.name}</p>
       </div>
     </div>
   );
