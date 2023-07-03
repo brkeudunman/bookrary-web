@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox, List, Slider } from "antd";
 import { allGenres, dataAuthors, trCities } from "../../../temp/data";
 
-const FilterByName = ({ title, data }) => {
+const FilterByName = ({ handleChange, title, data }) => {
   return (
     <FilterSection title={title}>
-      <Checkbox.Group style={{ width: "100%" }}>
+      <Checkbox.Group onChange={handleChange} style={{ width: "100%" }}>
         <List
           className="w-full"
           itemLayout="horizontal"
@@ -38,6 +38,13 @@ const FilterSection = ({ children, title }) => {
 };
 
 const Filters = () => {
+  const [selectedGenres, setSelectedGenres] = useState([]);
+
+  const handleGenreChange = (selectedValues) => {
+    setSelectedGenres(selectedValues);
+    // You can perform additional filtering logic here or pass the selected genres to another component for further processing
+  };
+
   return (
     <div className="flex flex-col rounded-md bg-[#FFFBEB] border border-stone-200 p-2 gap-y-5 text-sm">
       <FilterSection title={"Filters"}>
@@ -45,7 +52,11 @@ const Filters = () => {
           With our filters, you can look for what you want easily!
         </p>
       </FilterSection>
-      <FilterByName data={allGenres} title={"Genres"} />
+      <FilterByName
+        handleChange={handleGenreChange}
+        data={allGenres}
+        title={"Genres"}
+      />
       <FilterByName data={dataAuthors} title={"Popular Authors"} />
       <FilterByName data={trCities} title={"Cities"} />
 

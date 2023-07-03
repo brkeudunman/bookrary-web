@@ -7,13 +7,13 @@
     @apply h-screen;
   }
   body {
-    @apply h-full;
+    @apply h-screen;
   }
   #root {
-    @apply h-full;
+    @apply h-screen;
   }
   .App {
-    @apply h-full;
+    @apply h-screen;
   }
 }
 

@@ -1,6 +1,8 @@
 import { Drawer, Menu } from "antd";
 
 import React, { useState } from "react";
+import { allGenres, trCities } from "../../temp/data";
+import { Link } from "react-router-dom";
 // MOBILE DRAWER SHOULD BE FIX BY TAKING CATEGORIES DATA
 const MobileDrawer = ({ open, setOpen }) => {
   const onClose = () => {
@@ -47,24 +49,30 @@ const DrawerMenu = () => {
     };
   }
   const items = [
-    getItem(<DrawerButton>Categories</DrawerButton>, "1", null, [
-      getItem(<DrawerButton>Action</DrawerButton>, "1-1", null),
-      getItem(<DrawerButton>Action</DrawerButton>, "1-2", null),
-      getItem(<DrawerButton>Action</DrawerButton>, "1-3", null),
-      getItem(<DrawerButton>Action</DrawerButton>, "1-4", null),
-      getItem(<DrawerButton>Action</DrawerButton>, "1-5", null),
-      getItem(<DrawerButton>Action</DrawerButton>, "1-6", null),
-      getItem(<DrawerButton>Action</DrawerButton>, "1-7", null),
-      getItem(<DrawerButton>Action</DrawerButton>, "1-8", null),
+    getItem(<DrawerButton>Genres</DrawerButton>, "1", null, [
+      getItem(
+        <Link to={"/genres"}>
+          <DrawerButton>All Genres</DrawerButton>
+        </Link>,
+        "1-all",
+        null
+      ),
+      ...allGenres.map((genre) =>
+        getItem(
+          <DrawerButton>{genre.name}</DrawerButton>,
+          `1-${genre.id}`,
+          null
+        )
+      ),
     ]),
-    getItem(<DrawerButton>Cities</DrawerButton>, "2", null, [
-      getItem(<DrawerButton>Istanbul</DrawerButton>, "2-1", null),
-      getItem(<DrawerButton>Izmir</DrawerButton>, "2-2", null),
-      getItem(<DrawerButton>Ankara</DrawerButton>, "2-3", null),
-      getItem(<DrawerButton>Adana</DrawerButton>, "2-4", null),
-      getItem(<DrawerButton>Adiyaman</DrawerButton>, "2-5", null),
-      getItem(<DrawerButton>Afyon</DrawerButton>, "2-6", null),
-    ]),
+    getItem(
+      <DrawerButton>Cities</DrawerButton>,
+      "2",
+      null,
+      trCities.map((city) =>
+        getItem(<DrawerButton>{city.name}</DrawerButton>, `1-${city.id}`, null)
+      )
+    ),
   ];
   const [collapsed, setCollapsed] = useState(false);
 

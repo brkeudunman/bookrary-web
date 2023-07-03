@@ -121,6 +121,7 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
   {
     id: "2",
@@ -129,6 +130,7 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "John Smith",
     price: 30,
+    genre: "Thriller",
   },
   {
     id: "3",
@@ -137,6 +139,7 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
   {
     id: "4",
@@ -145,6 +148,7 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Jane Johnson",
     price: 25,
+    genre: "Classics",
   },
   {
     id: "5",
@@ -153,6 +157,7 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Emily Davis",
     price: 20,
+    genre: "Classics",
   },
   {
     id: "6",
@@ -161,6 +166,7 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Sci-Fi",
   },
   {
     id: "7",
@@ -169,6 +175,7 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "David Thompson",
     price: 35,
+    genre: "Romance",
   },
   {
     id: "8",
@@ -177,6 +184,7 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
   {
     id: "9",
@@ -185,6 +193,7 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Sarah Wilson",
     price: 30,
+    genre: "Contemporary",
   },
   {
     id: "10",
@@ -193,8 +202,8 @@ export const topBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
-
 ];
 
 export const dataAllBooks = [
@@ -205,6 +214,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
   {
     id: "2",
@@ -213,6 +223,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "John Smith",
     price: 30,
+    genre: "Thriller",
   },
   {
     id: "3",
@@ -221,6 +232,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
   {
     id: "4",
@@ -229,6 +241,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Jane Johnson",
     price: 25,
+    genre: "Classics",
   },
   {
     id: "5",
@@ -237,6 +250,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Emily Davis",
     price: 20,
+    genre: "Classics",
   },
   {
     id: "6",
@@ -245,6 +259,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Sci-Fi",
   },
   {
     id: "7",
@@ -253,6 +268,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "David Thompson",
     price: 35,
+    genre: "Romance",
   },
   {
     id: "8",
@@ -261,6 +277,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
   {
     id: "9",
@@ -269,6 +286,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Sarah Wilson",
     price: 30,
+    genre: "Contemporary",
   },
   {
     id: "10",
@@ -277,6 +295,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
   {
     id: "11",
@@ -285,6 +304,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Alex Turner",
     price: 40,
+    genre: "Classics",
   },
   {
     id: "12",
@@ -293,6 +313,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
   {
     id: "13",
@@ -301,6 +322,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Michael Brown",
     price: 35,
+    genre: "Fantasy",
   },
   {
     id: "14",
@@ -309,6 +331,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Historical",
   },
   {
     id: "15",
@@ -317,6 +340,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Emma Wilson",
     price: 30,
+    genre: "Classics",
   },
   {
     id: "16",
@@ -325,6 +349,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Classics",
   },
   {
     id: "17",
@@ -333,6 +358,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Daniel Thompson",
     price: 40,
+    genre: "Classics",
   },
   {
     id: "18",
@@ -341,6 +367,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
+    genre: "Horror",
   },
   {
     id: "19",
@@ -349,6 +376,7 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Olivia Johnson",
     price: 25,
+    genre: "Adventure",
   },
   {
     id: "20",
@@ -357,7 +385,8 @@ export const dataAllBooks = [
     location: "Urla, İzmir - Urla Halk Kütüp.",
     seller: "Berke Udunman",
     price: 50,
-  }
+    genre: "Classics",
+  },
 ];
 
 
