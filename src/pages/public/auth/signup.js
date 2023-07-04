@@ -14,7 +14,7 @@ const SignUp = () => {
   const onFinish = (values) => {
     mutate(values);
   };
- 
+
   return (
     <div className="md:flex mx-10 md:mx-20 mt-20 items-center ">
       <div className="flex-1 text-center md:text-start ">
@@ -31,7 +31,7 @@ const SignUp = () => {
         </span>
 
         <Form className="md:w-4/5 mt-8" onFinish={onFinish}>
-          <SignUpForm/>
+          <SignUpForm />
         </Form>
       </div>
       <div className="md:mt-0 mt-20 md:flex md:flex-1 md:justify-center">
@@ -40,13 +40,12 @@ const SignUp = () => {
           title={"Don't Have An Account?"}
         />
       </div>
-      <ScrollButton/>
+      <ScrollButton />
     </div>
   );
 };
 
 export default SignUp;
-
 
 const SignUpForm = () => {
   const options = [
@@ -181,10 +180,6 @@ const SignUpForm = () => {
           >
             Sign Up
           </Button>
-          <span className="text-xs font-light text-[#7AD6FF]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </span>
         </span>
       </Form.Item>
     </>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import sample from "../../../assets/sample.png";
 import {
+  EnvironmentOutlined,
   FacebookOutlined,
   InstagramOutlined,
   LinkedinOutlined,
@@ -10,6 +11,10 @@ import {
 import { Button } from "antd";
 import { filterBooksBySeller } from "../../../util/filterBooksByName";
 import BooksView from "./../../../common/view/booksView";
+import {
+  useCart,
+  useDispatchCart,
+} from "../../../common/components/cart/cartProvider";
 
 const BookPage = () => {
   const location = useLocation();
@@ -19,6 +24,13 @@ const BookPage = () => {
   useEffect(() => {
     setFilteredBooks(filterBooksBySeller(bookData.seller));
   }, []);
+
+  const dispatch = useDispatchCart();
+  const cart = useCart();
+
+  const addToCart = (item) => {
+    dispatch({ type: "ADD", item });
+  };
 
   return (
     <main className="p-12 basis-3/4 flex flex-col gap-y-8 ">
@@ -46,7 +58,7 @@ const BookPage = () => {
         <div className="md:basis-7/12 flex flex-col  ">
           <div className="flex flex-col gap-y-4 ">
             <div className="text-xl text-center py-2 md:py-0 underline md:no-underline md:text-left font-semibold">
-              ₺<span className="text-2xl">{bookData.price}</span>
+              ₺ <span className="text-2xl">{bookData.price}</span>
             </div>
             <div className="text-sm font-semibold">
               Seller:<span className="text-[#3BC2FF]"> {bookData.seller}</span>
@@ -67,10 +79,26 @@ const BookPage = () => {
               <p className="text-sm list-inside">New condition</p>
             </div>
             <div>
+              <p className="text-base font-extrabold">Library:</p>
+              <div className="border rounded-md bg-white flex gap-2 ">
+                <EnvironmentOutlined className="pl-1.5" />
+                <p>{bookData.location}</p>
+              </div>
+            </div>
+            <div>
               <p className="text-base font-extrabold">Action:</p>
               <div className="flex gap-x-4 justify-between">
-                <Button className="flex-1">Add to Cart</Button>
-                <Button className="flex-1">Add to Cart</Button>
+                <Button
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    addToCart({ data: bookData });
+                  }}
+                  className="flex-1 bg-[#3BC2FF] text-white"
+                  type="primary"
+                >
+                  Add To Cart
+                </Button>
+                <Button className="flex-1">Contact Seller</Button>
               </div>
             </div>
           </div>
@@ -79,7 +107,12 @@ const BookPage = () => {
 
       <section className="pt-24">
         <BooksView
-          title={<span>More books from <span className="text-[#3BC2FF]">{bookData.seller}</span></span>}
+          title={
+            <span>
+              More books from{" "}
+              <span className="text-[#3BC2FF]">{bookData.seller}</span>
+            </span>
+          }
           bookData={filteredBooks}
         />
       </section>
