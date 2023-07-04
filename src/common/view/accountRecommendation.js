@@ -1,5 +1,5 @@
 import React from "react";
-import { dataAuthors } from "../../temp/data";
+import { mainAuthors } from "../../temp/data.js";
 import { Avatar } from "antd";
 
 const AccountRecomendationView = ({ description, title }) => {
@@ -12,7 +12,7 @@ const AccountRecomendationView = ({ description, title }) => {
         <p className="flex  text-[#343434] ">{description}</p>
       </div>
       <section className="overflow-scroll md:overflow-auto flex md:grid lg:grid-cols-3 grid-cols-2 gap-4 mt-8">
-        {dataAuthors?.map((data) => (
+        {mainAuthors?.map((data) => (
           <div className=" hover:shadow-lg flex justify-center rounded-lg bg-[#FFFBEB] p-2">
             <span className=" flex justify-center  rounded-full xl:w-32 xl:h-32  object-cover">
               <Avatar

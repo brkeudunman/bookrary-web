@@ -1,6 +1,6 @@
 import React from "react";
 import BasicCarousel from "../../../common/components/carousel/basic-carousel";
-import { dataAuthors, topBooks, topGenres } from "../../../temp/data";
+import { mainAuthors, topBooks, topGenres } from "../../../temp/data";
 import BooksView from "./../../../common/view/booksView";
 import PopularCategoryView from "../../../common/view/popularCategoriesView.js";
 
@@ -17,7 +17,7 @@ const Home = () => {
        
 
         <PopularCategoryView
-          categoriesData={dataAuthors}
+          categoriesData={mainAuthors}
           title={"Most Preferred Authors This Month"}
           background={
             "https://images.boboscope.com/a21f2c1c-dbad-4ea4-b56b-cf9014ff393a?alt=media&token=fb6ea59f-7297-4ac0-b8ba-2ed99db98ca2&tr=w-1100,c-at_max,f-auto"

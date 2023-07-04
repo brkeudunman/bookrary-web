@@ -1,12 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BasicBreadCrumb from "../../../common/components/breadcrumb/breadcrumb";
 import { dataAllBooks } from "../../../temp/data";
 import BookCard from "../../../common/components/card/book-card";
 import Filters from "../../../common/components/filters/filters";
 import { FilterOutlined } from "@ant-design/icons";
+import { filterBooksByGenre } from "./../../../util/filterBooksByGenre";
+import { filterBooksByAuthors } from "../../../util/filterBooksByAuthors";
 
 const GenresPage = () => {
   const [openFilters, setOpenFilters] = useState(false);
+  const [booksData, setBooksData] = useState(dataAllBooks);
+  const [selectedGenres, setSelectedGenres] = useState([""]);
+  const [selectedAuthors, setSelectedAuthors] = useState([""]);
+
+  const handleGenreChange = (selectedValues) => {
+    setSelectedGenres(selectedValues);
+
+    // If no genres are selected, show all books
+    if (selectedValues.length === 0) {
+      setBooksData(dataAllBooks);
+    } else {
+      // Perform filtering logic using selected genres
+      setBooksData(filterBooksByGenre(selectedValues));
+    }
+  };
+  const handleAuthorChange = (selectedValues) => {
+    setSelectedAuthors(selectedValues);
+
+    // If no genres are selected, show all books
+    if (selectedValues.length === 0) {
+      setBooksData(dataAllBooks);
+    } else {
+      // Perform filtering logic using selected genres
+      setBooksData(filterBooksByAuthors(selectedValues));
+    }
+  };
+
+  useEffect(() => {
+    console.log("BookSS", booksData);
+  }, [booksData]);
 
   return (
     <>
@@ -31,17 +63,23 @@ const GenresPage = () => {
             </div>
           </div>
           <span className={openFilters ? "block md:hidden" : "hidden"}>
-            <Filters />
+            <Filters
+              handleAuthorChange={handleAuthorChange}
+              handleGenreChange={handleGenreChange}
+            />
           </span>
         </div>
 
-        <div className="order-4 flex flex-col mini:flex-row justify-evenly gap-x-4">
-          <div className="hidden md:block w-full">
-            <Filters />
+        <div className="order-4 flex flex-col mini:flex-row justify-between gap-x-4">
+          <div className="basis-3/12 hidden md:block w-full">
+            <Filters
+              handleAuthorChange={handleAuthorChange}
+              handleGenreChange={handleGenreChange}
+            />
           </div>
 
-          <div className="grid grid-cols-1 mini:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mini:gap-6">
-            {dataAllBooks.map((val, idx) => (
+          <div className="basis-9/12 grid grid-cols-1 mini:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mini:gap-6">
+            {booksData.map((val, idx) => (
               <BookCard book={val} />
             ))}
           </div>

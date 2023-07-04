@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Checkbox, List, Slider } from "antd";
-import { allGenres, dataAuthors, trCities } from "../../../temp/data";
+import { allGenres, allAuthors, trCities } from "../../../temp/data";
 
 const FilterByName = ({ handleChange, title, data }) => {
   return (
@@ -37,14 +37,7 @@ const FilterSection = ({ children, title }) => {
   );
 };
 
-const Filters = () => {
-  const [selectedGenres, setSelectedGenres] = useState([]);
-
-  const handleGenreChange = (selectedValues) => {
-    setSelectedGenres(selectedValues);
-    // You can perform additional filtering logic here or pass the selected genres to another component for further processing
-  };
-
+const Filters = ({ handleGenreChange, handleAuthorChange }) => {
   return (
     <div className="flex flex-col rounded-md bg-[#FFFBEB] border border-stone-200 p-2 gap-y-5 text-sm">
       <FilterSection title={"Filters"}>
@@ -57,7 +50,11 @@ const Filters = () => {
         data={allGenres}
         title={"Genres"}
       />
-      <FilterByName data={dataAuthors} title={"Popular Authors"} />
+      <FilterByName
+        handleChange={handleAuthorChange}
+        data={allAuthors}
+        title={"Popular Authors"}
+      />
       <FilterByName data={trCities} title={"Cities"} />
 
       <FilterSection title={"Price Range"}>

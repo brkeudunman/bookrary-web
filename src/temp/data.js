@@ -22,66 +22,325 @@ export const topGenres = [
 export const allGenres = [
   {
     name: "Action",
-    id: "actionId",
+    id: "action",
   },
   {
     name: "Adventure",
-    id: "adventureId",
+    id: "adventure",
   },
   {
     name: "Classics",
-    id: "classicsId",
+    id: "classics",
   },
   {
     name: "Contemporary",
-    id: "contemporaryId",
+    id: "contemporary",
   },
   {
     name: "Fantasy",
-    id: "fantasyId",
+    id: "fantasy",
   },
   {
     name: "Historical",
-    id: "historicalId",
+    id: "historical",
   },
   {
     name: "Horror",
-    id: "horrorId",
+    id: "horror",
   },
   {
     name: "Mythology",
-    id: "mythologyId",
+    id: "mythology",
   },
   {
     name: "Non-fiction",
-    id: "nonfictionId",
+    id: "nonfiction",
   },
   {
     name: "Plays",
-    id: "playsId",
+    id: "plays",
   },
   {
     name: "Poetry",
-    id: "poetryId",
+    id: "poetry",
   },
   {
     name: "Psychology",
-    id: "psychologyId",
+    id: "psychology",
   },
   {
     name: "Romance",
-    id: "romanceId",
+    id: "romance",
   },
   {
     name: "Sci-Fi",
-    id: "scifiId",
+    id: "scifi",
   },
   {
     name: "Thriller",
-    id: "thrillerId",
+    id: "thriller",
   },
 ];
-export const dataAuthors = [
+
+export const allAuthors = [
+  {
+    name: "Kabahattin Ali",
+    books: [
+      {
+        id: "1",
+        title: "Kuyucaksiz Yusuf",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "Rick Uncle",
+    books: [
+      {
+        id: "2",
+        title: "Yildirim Hirsizi",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "John Smith",
+        price: 30,
+        genre: "Thriller",
+      },
+    ],
+  },
+  {
+    name: "John Doe",
+    books: [
+      {
+        id: "3",
+        title: "Sag ayagim",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Classics",
+      },
+      {
+        id: "4",
+        title: "80 günde devri dünya",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Jane Johnson",
+        price: 25,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "Harper Lee",
+    books: [
+      {
+        id: "5",
+        title: "To Kill a Mockingbird",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Emily Davis",
+        price: 20,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "George Orwell",
+    books: [
+      {
+        id: "6",
+        title: "1984",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Sci-Fi",
+      },
+    ],
+  },
+  {
+    name: "Jane Austen",
+    books: [
+      {
+        id: "7",
+        title: "Pride and Prejudice",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "David Thompson",
+        price: 35,
+        genre: "Romance",
+      },
+    ],
+  },
+  {
+    name: "F. Scott Fitzgerald",
+    books: [
+      {
+        id: "8",
+        title: "The Great Gatsby",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "J.D. Salinger",
+    books: [
+      {
+        id: "9",
+        title: "The Catcher in the Rye",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Sarah Wilson",
+        price: 30,
+        genre: "Contemporary",
+      },
+    ],
+  },
+  {
+    name: "Virginia Woolf",
+    books: [
+      {
+        id: "10",
+        title: "To the Lighthouse",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "Herman Melville",
+    books: [
+      {
+        id: "11",
+        title: "Moby-Dick",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Alex Turner",
+        price: 40,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "Charlotte Bronte",
+    books: [
+      {
+        id: "12",
+        title: "Jane Eyre",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "J.R.R. Tolkien",
+    books: [
+      {
+        id: "13",
+        title: "The Hobbit",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Michael Brown",
+        price: 35,
+        genre: "Fantasy",
+      },
+    ],
+  },
+  {
+    name: "Leo Tolstoy",
+    books: [
+      {
+        id: "14",
+        title: "War and Peace",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Historical",
+      },
+    ],
+  },
+  {
+    name: "Homer",
+    books: [
+      {
+        id: "15",
+        title: "The Odyssey",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Emma Wilson",
+        price: 30,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "Miguel de Cervantes",
+    books: [
+      {
+        id: "16",
+        title: "Don Quixote",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "Dante Alighieri",
+    books: [
+      {
+        id: "17",
+        title: "The Divine Comedy",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Daniel Thompson",
+        price: 40,
+        genre: "Classics",
+      },
+    ],
+  },
+  {
+    name: "Mary Shelley",
+    books: [
+      {
+        id: "18",
+        title: "Frankenstein",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Horror",
+      },
+    ],
+  },
+  {
+    name: "Mark Twain",
+    books: [
+      {
+        id: "19",
+        title: "The Adventures of Tom Sawyer",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Olivia Johnson",
+        price: 25,
+        genre: "Adventure",
+      },
+    ],
+  },
+  {
+    name: "Oscar Wilde",
+    books: [
+      {
+        id: "20",
+        title: "The Picture of Dorian Gray",
+        location: "Urla, İzmir - Urla Halk Kütüp.",
+        seller: "Berke Udunman",
+        price: 50,
+        genre: "Classics",
+      },
+    ],
+  },
+];
+
+export const mainAuthors = [
   {
     name: "Jane Austen",
     image:
@@ -388,7 +647,6 @@ export const dataAllBooks = [
     genre: "Classics",
   },
 ];
-
 
 export const trCities = [
   {
