@@ -1,20 +1,32 @@
+import { message } from "antd";
 import React, { useReducer, useContext, createContext } from "react";
 
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();
+let errorMessageShown = 0;
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD":
-      return [...state, action.item];
+      const newItem = action.item;
+      const itemExists = state.some((item) => item.data.id === newItem.data.id);
+
+      if (itemExists && !errorMessageShown) {
+        errorMessageShown = 1;
+        message.error("Item is already in cart");
+        return state;
+      }
+      errorMessageShown = 0;
+      return [...state, newItem];
     case "REMOVE":
-      const newArr = [...state];
-      newArr.splice(action.index, 1);
-      return newArr;
+      const updatedState = state.filter(
+        (item) => item.data.id !== action.index
+      );
+      return updatedState;
     case "CLEAR":
       return [];
     default:
-      throw new Error(`unknown action ${action.type}`);
+      throw new Error(`Unknown action ${action.type}`);
   }
 };
 

@@ -5,6 +5,7 @@ import { Button } from "antd";
 
 const CartItem = ({ bookData, index, handleRemove }) => {
   const data = bookData.data;
+  
   return (
     <div className="w-full block md:flex md:w-full md:p-0">
       <div className="bg-white p-2 sm:p-6 md:p-2 rounded-t-md flex flex-col justify-center  ">
@@ -37,7 +38,7 @@ const CartItem = ({ bookData, index, handleRemove }) => {
               {data.price} TL
             </p>
             <Button
-              onClick={() => handleRemove()}
+              onClick={handleRemove}
               danger
               className="h-full font-bold"
             >
