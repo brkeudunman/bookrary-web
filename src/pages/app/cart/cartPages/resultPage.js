@@ -1,5 +1,6 @@
 import React from "react";
 import { Statistic } from "antd";
+import threeCards from "../../../../assets/threeCards.png";
 
 const { Countdown } = Statistic;
 const deadline = Date.now() + 1000 * 60 * 60 * 3;
@@ -12,10 +13,11 @@ const ResultPage = () => {
   return (
     <div className="bg-[#ECF9FF] flex flex-col justify-center items-center rounded-md leading-normal">
       <div className="bg-white rounded-md flex flex-col justify-center items-center my-14 mx-10 px-12">
-        <h1 className="text-[#3BC3FF] font-bold">Thanks for the Purchase!</h1>
-        <h2 className="text-[#3BC3FF] m-4 font-semibold">
+        <h1 className="text-[#3BC3FF] font-bold mt-8">Thanks for the Purchase!</h1>
+        <h2 className="text-[#3BC3FF]  mb-4 font-semibold">
           Don't miss to get your book(s) in time!
         </h2>
+        <img src={threeCards} alt="cards" className="mb-4" />
         <div className="bg-[#FFD666] mb-10 px-14 py-4 rounded-md">
           <span className="text-white">
             <Countdown

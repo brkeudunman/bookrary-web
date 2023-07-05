@@ -75,6 +75,7 @@ const CartManagementPanel = ({ onFinish, totalPrice, setCurrent, current }) => {
               size="large"
               type="primary"
               onClick={onFinish}
+              htmlType="submit"
             >
               Submit Order
             </Button>
@@ -133,7 +134,7 @@ const Cart = () => {
   const onSuccessOrder = () => {
     message.success("Order is success!", 2);
     setCurrent(current + 1);
-    dispatch({ type: "CLEAR"});
+    dispatch({ type: "CLEAR" });
   };
 
   const stepItems = steps.map((item) => ({
@@ -151,7 +152,7 @@ const Cart = () => {
       </Row>
       <Row align={"top"} justify={"center"} gutter={[24, 12]}>
         <Col span={24} md={20} lg={current !== 2 ? 17 : 24}>
-          <CartPage currentPage={current} />
+          <CartPage onSuccessOrder={onSuccessOrder} currentPage={current} />
         </Col>
 
         <Col span={24} md={20} lg={6} xl={6}>

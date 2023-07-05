@@ -3,7 +3,6 @@ import React, { useReducer, useContext, createContext } from "react";
 
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();
-let errorMessageShown = 0;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -11,12 +10,10 @@ const reducer = (state, action) => {
       const newItem = action.item;
       const itemExists = state.some((item) => item.data.id === newItem.data.id);
 
-      if (itemExists && !errorMessageShown) {
-        errorMessageShown = 1;
+      if (itemExists ) {
         message.error("Item is already in cart");
         return state;
       }
-      errorMessageShown = 0;
       return [...state, newItem];
     case "REMOVE":
       const updatedState = state.filter(
