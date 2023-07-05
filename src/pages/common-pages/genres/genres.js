@@ -70,17 +70,19 @@ const GenresPage = () => {
           </span>
         </div>
 
-        <div className="order-4 flex flex-col mini:flex-row justify-between gap-x-4">
-          <div className="basis-3/12 hidden md:block w-full">
+        <div className="order-4 justify-between gap-x-4 grid grid-cols-4">
+          <div className="hidden row-span-2 md:block ">
             <Filters
               handleAuthorChange={handleAuthorChange}
               handleGenreChange={handleGenreChange}
             />
           </div>
 
-          <div className="basis-9/12 grid grid-cols-1 mini:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mini:gap-6">
-            {booksData.map((val, idx) => (
-              <BookCard book={val} />
+          <div className="grid mini:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4  gap-x-3 gap-y-4 col-span-4  md:col-span-3">
+            {booksData.map((book) => (
+              <div className="">
+                <BookCard book={book} />
+              </div>
             ))}
           </div>
         </div>
