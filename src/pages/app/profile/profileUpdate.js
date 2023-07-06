@@ -11,19 +11,36 @@ import { useGetLibraries } from "../../../hooks/library";
 const ProfileUpdatePage = () => {
   const [form] = useForm();
   const userId = window.localStorage.getItem("id");
-  const { mutate: updateUser, isLoading: isUpdating } = useUpdateUser();
+  console.log(userId);
+  const {
+    data,
+    mutate: updateUser,
+    isLoading: isUpdating,
+  } = useUpdateUser(
+    () =>
+      notification.success({
+        message: "Success!",
+        description: "Update is successfully done.",
+      }),
+    userId
+  );
   const { data: libraries, isLoading: isLibrariesLoading } = useGetLibraries();
-
   const {
     data: userData,
     isLoading: isUserLoading,
     isSuccess,
   } = useGetUser(userId);
+
   const handleFinish = (values) => {
-    notification.success({
-      message: "Success!",
-      description: "Update is successfully done.",
-    }); // Bunu on Success olarak alıcaz.
+    const userData = {
+      email: values.email,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      libraryId: values.library?.id,
+      phoneNumber: values.phoneNumber,
+      role: "ADMIN",
+    };
+    updateUser(userData);
   };
 
   return (
@@ -76,7 +93,6 @@ const ProfileUpdatePage = () => {
 export default ProfileUpdatePage;
 
 const ProfileUpdateFormContent = ({ libraries }) => {
-  console.log(libraries, "addasdas");
   const inputStyle = "py-2"; // todo, buglı
   const [isPasswordChange, setPasswordChange] = useState(false);
   return (

@@ -8,6 +8,7 @@ import { NotFoundPage } from "../common-pages/err-page/notFoundPage";
 import GenresPage from "../common-pages/genres/genres";
 import ProfileUpdatePage from "./profile/profileUpdate";
 import BookPage from "../common-pages/book/book";
+import AddBookPage from "./sale/add-book";
 
 const AppRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const AppRoutes = () => {
         <Route path="/genres" element={<GenresPage />} />
         <Route path="/update" element={<ProfileUpdatePage />} />
         <Route path="/book/:id" element={<BookPage />} />
+        <Route path="/add-book" element={<AddBookPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </AppLayout>

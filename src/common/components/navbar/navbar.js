@@ -43,6 +43,11 @@ const Navbar = () => {
       to: "update",
     },
     {
+      label: "Add Sale",
+      key: "2",
+      to: "add-book",
+    },
+    {
       label: (
         <div
           className="text-[#343434] hover:text-white"
@@ -54,7 +59,7 @@ const Navbar = () => {
           Logout
         </div>
       ),
-      key: "2",
+      key: "3",
       to: "",
       danger: true,
     },

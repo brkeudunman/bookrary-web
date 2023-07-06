@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { Button, Col, message, Row, Steps, theme } from "antd";
+import { Button, Col, Form, message, Modal, Row, Steps, theme } from "antd";
 import {
   ShoppingCartOutlined,
   CreditCardOutlined,
@@ -13,6 +13,7 @@ import {
   useCart,
   useDispatchCart,
 } from "../../../common/components/cart/cartProvider";
+import { useForm } from "antd/es/form/Form";
 
 const steps = [
   {
@@ -32,7 +33,13 @@ const steps = [
   },
 ];
 
-const CartManagementPanel = ({ onFinish, totalPrice, setCurrent, current }) => {
+const CartManagementPanel = ({
+  onFinish,
+  totalPrice,
+  setCurrent,
+  current,
+  setShowModal,
+}) => {
   const userToken = getToken();
   const next = () => {
     setCurrent(current + 1);
@@ -74,7 +81,7 @@ const CartManagementPanel = ({ onFinish, totalPrice, setCurrent, current }) => {
               className="bg-[#7AD6FF] text-white flex-1"
               size="large"
               type="primary"
-              onClick={onFinish}
+              onClick={() => setShowModal(true)}
               htmlType="submit"
             >
               Submit Order
@@ -123,6 +130,7 @@ const CartPage = ({ currentPage }) => {
 
 const Cart = () => {
   const [current, setCurrent] = useState(0);
+  const [sureModal, setSureModal] = useState(false);
   const items = useCart();
   const dispatch = useDispatchCart();
   var totalPrice = 0;
@@ -135,6 +143,7 @@ const Cart = () => {
     message.success("Order is success!", 2);
     setCurrent(current + 1);
     dispatch({ type: "CLEAR" });
+    setSureModal(false);
   };
 
   const stepItems = steps.map((item) => ({
@@ -142,6 +151,7 @@ const Cart = () => {
     title: item.title,
     icon: item.icon,
   }));
+  const [form] = useForm();
 
   return (
     <div className="px-12 pt-9 bg-white h-screen">
@@ -160,8 +170,25 @@ const Cart = () => {
             totalPrice={totalPrice}
             current={current}
             setCurrent={setCurrent}
+            setShowModal={setSureModal}
             onFinish={onSuccessOrder}
           />
+          <Modal
+            title="Are you sure to purchase?"
+            open={sureModal}
+            onOk={onSuccessOrder}
+            okType="default"
+            onCancel={() => setSureModal(false)}
+          >
+            <p>
+              Please review your order details carefully before proceeding with
+              the purchase
+            </p>
+            <p className="text-gray-400 text-xs">
+              By confirming this purchase, you agree to the terms and conditions
+              outlined in our policy
+            </p>
+          </Modal>
         </Col>
       </Row>
     </div>

@@ -3,7 +3,7 @@ import { Statistic } from "antd";
 import threeCards from "../../../../assets/threeCards.png";
 
 const { Countdown } = Statistic;
-const deadline = Date.now() + 1000 * 60 * 60 * 3;
+const deadline = Date.now() + 1000 * 60 * 60 * 3 + 30*1000;
 
 const onFinish = () => {
   console.log("finished!");
@@ -21,6 +21,7 @@ const ResultPage = () => {
         <div className="bg-[#FFD666] mb-10 px-14 py-4 rounded-md">
           <span className="text-white">
             <Countdown
+            
               value={deadline}
               onFinish={onFinish}
               valueStyle={{ color: "white" }}

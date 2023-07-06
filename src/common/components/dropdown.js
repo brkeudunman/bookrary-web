@@ -6,7 +6,7 @@ const DropdownRouteMenu = ({ items, children, onHover }) => {
   const navigate = useNavigate();
 
   const onClick = ({ key }) => {
-    if (key !== "2") {
+    if (key !== "3") {
       navigate(`./${items[key]?.to}`);
     }
   };

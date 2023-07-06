@@ -38,11 +38,11 @@ export const useGetUserStats = (id, onSuccess) => {
   );
 };
 
-export const useUpdateUser = (onSuccess) => {
+export const useUpdateUser = (onSuccess, id) => {
   return useMutation({
     mutationKey: "update-user",
-    mutationFn: (id) => {
-      return updateUser(id);
+    mutationFn: (data) => {
+      return updateUser(id, data);
     },
     onError: (error) =>
       notification.error({
