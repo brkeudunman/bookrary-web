@@ -89,9 +89,6 @@ const Navbar = () => {
         >
           <img src={Logo} className="md:w-20 md:h-14 h-12 w-16" alt="" />
         </div>
-        <div className="input hidden sm:flex rounded-lg items-center px-2 bg-slate-300 flex-1">
-          <Input className="h-3/4" />
-        </div>
         <div className="flex sm:gap-3 gap-1">
           {!isLoggedIn ? (
             <div className="sign-button sm:w-fit h-full hover:shadow-md">

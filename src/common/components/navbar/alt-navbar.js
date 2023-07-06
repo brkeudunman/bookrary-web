@@ -4,11 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "./popover.css";
 import { allGenres, trCities } from "../../../temp/data";
 
-const OptionButton = ({ text, to, className }) => {
-  console.log(text);
+const OptionButton = ({ state, text, to, className }) => {
   return (
     <div>
-      <Link to={to}>
+      <Link state={state ? state : text} to={to}>
         <span className={className}>{text}</span>
       </Link>
     </div>
@@ -22,17 +21,9 @@ const GenreContent = () => {
         All Genres You Might Like!
       </div>
 
-      <div className="mb-1.5">
-        <OptionButton
-          className={"text-blue-400"}
-          to={"/genres"}
-          text={"All Genres..."}
-        />
-      </div>
-
       <div className="grid grid-cols-2 gap-x-20">
         {allGenres.map((genre, index) => (
-          <OptionButton key={index} text={genre.name} to={genre.id} />
+          <OptionButton key={index} text={genre.name} to={"/genres"} />
         ))}
       </div>
     </div>

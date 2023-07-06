@@ -55,16 +55,6 @@ const Filters = ({ handleGenreChange, handleAuthorChange }) => {
         data={allAuthors}
         title={"Popular Authors"}
       />
-      <FilterByName data={trCities} title={"Cities"} />
-
-      <FilterSection title={"Price Range"}>
-        <Slider
-          range={{
-            draggableTrack: true,
-          }}
-          defaultValue={[10, 50]}
-        />
-      </FilterSection>
     </div>
   );
 };

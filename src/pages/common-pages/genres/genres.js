@@ -6,12 +6,21 @@ import Filters from "../../../common/components/filters/filters";
 import { FilterOutlined } from "@ant-design/icons";
 import { filterBooksByGenre } from "./../../../util/filterBooksByGenre";
 import { filterBooksByAuthors } from "../../../util/filterBooksByAuthors";
+import { useLocation } from "react-router-dom";
 
 const GenresPage = () => {
+  const location = useLocation();
+
   const [openFilters, setOpenFilters] = useState(false);
   const [booksData, setBooksData] = useState(dataAllBooks);
   const [selectedGenres, setSelectedGenres] = useState([""]);
   const [selectedAuthors, setSelectedAuthors] = useState([""]);
+
+  useEffect(() => {
+    if (location.state) {
+      handleGenreChange(location.state);
+    }
+  }, [location.state]);
 
   const handleGenreChange = (selectedValues) => {
     setSelectedGenres(selectedValues);
@@ -22,6 +31,7 @@ const GenresPage = () => {
     } else {
       // Perform filtering logic using selected genres
       setBooksData(filterBooksByGenre(selectedValues));
+      location.state = "";
     }
   };
   const handleAuthorChange = (selectedValues) => {

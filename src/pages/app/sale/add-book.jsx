@@ -133,13 +133,13 @@ const AddBookPage = () => {
                     onChange={onChange}
                     onSearch={onSearch}
                     filterOption={(input, option) =>
-                      (option?.label ?? "")
+                      (option?.value ?? "")
                         .toLowerCase()
                         .includes(input.toLowerCase())
                     }
                   >
                     {allGenres.map((genre) => (
-                      <Select.Option key={genre?.id} value={genre?.id}>
+                      <Select.Option key={genre?.id} value={genre?.name}>
                         {genre?.name}
                       </Select.Option>
                     ))}
