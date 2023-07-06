@@ -38,7 +38,7 @@ const ProfileUpdatePage = () => {
       lastName: values.lastName,
       libraryId: values.library?.id,
       phoneNumber: values.phoneNumber,
-      role: "ADMIN",
+      role:"USER"
     };
     updateUser(userData);
   };

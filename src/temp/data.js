@@ -82,7 +82,7 @@ export const allGenres = [
   },
 ];
 
-export const allAuthors = [
+export let allAuthors = [
   {
     name: "Kabahattin Ali",
     books: [
@@ -465,7 +465,7 @@ export const topBooks = [
   },
 ];
 
-export const dataAllBooks = [
+export var dataAllBooks = [
   {
     id: "1",
     title: "Kuyucaksiz Yusuf",

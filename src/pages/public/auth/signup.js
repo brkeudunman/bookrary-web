@@ -95,6 +95,10 @@ const SignUpForm = () => {
             required: true,
             message: "Email is required",
           },
+          {
+            message:"The input should be in email format",
+            type:"email"
+          }
         ]}
         name={"email"}
       >

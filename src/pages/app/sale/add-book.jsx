@@ -1,10 +1,12 @@
 import { InboxOutlined, PictureOutlined } from "@ant-design/icons";
-import { Button, Form, Input, Select, message } from "antd";
+import { Button, Form, Input, InputNumber, Select, message, notification } from "antd";
 import Dragger from "antd/es/upload/Dragger";
 import React from "react";
-import { allGenres } from "../../../temp/data";
+import { allAuthors, allGenres, dataAllBooks } from "../../../temp/data";
 import SubmitButton from "../../../common/components/button/submit";
 import Cancel from "../../../common/components/button/cancel";
+import { useGetUser } from "../../../hooks/user";
+import { useNavigate } from "react-router-dom";
 
 const props = {
   name: "file",
@@ -27,6 +29,31 @@ const props = {
 };
 
 const AddBookPage = () => {
+  const userId = window.localStorage.getItem("id");
+  const navigate = useNavigate();
+  const {
+    isLoading: isUserLoading,
+    data: userData,
+    isError: isUserError,
+  } = useGetUser(userId);
+
+  const onFinish = (values) => {
+    dataAllBooks.push({
+      ...values,
+      location: "Urla, İzmir - Urla Halk Kütüp.",
+      id: dataAllBooks.length+1,
+      seller: userData.firstName + " " + userData.lastName,
+    });
+    allAuthors.push({
+      name: values.author,
+      books: [],
+    });
+    notification.success({
+      description: "Book has been published!",
+      message: "Success!",
+    });
+    navigate("/genres");
+  };
   const onChange = (value) => {
     console.log(`selected ${value}`);
   };
@@ -42,17 +69,12 @@ const AddBookPage = () => {
           <span className="text-red-500">*</span> must be provided
         </p>
       </div>
-      <Form requiredMark>
+      <Form requiredMark onFinish={onFinish}>
         <div className="flex flex-col md:flex-row gap-4 md:gap-12">
           <div className="md:basis-1/3">
-            <p className="text-lg md:text-2xl font-bold">
-              Add Image <span className="text-red-500">*</span>
-            </p>
-            <Form.Item
-              name="image"
-              rules={[{ required: true, message: "Please upload an image" }]}
-            >
-              <Dragger clas {...props}>
+            <p className="text-lg md:text-2xl font-bold">Add Image</p>
+            <Form.Item name="image">
+              <Dragger {...props}>
                 <p className="ant-upload-drag-icon p-4">
                   <PictureOutlined />
                 </p>
@@ -86,7 +108,7 @@ const AddBookPage = () => {
                   Book Name <span className="text-red-500">*</span>
                 </p>
                 <Form.Item
-                  name="bookName"
+                  name="title"
                   rules={[
                     { required: true, message: "Please enter the book name" },
                   ]}
@@ -132,9 +154,10 @@ const AddBookPage = () => {
                   name="price"
                   rules={[
                     { required: true, message: "Please enter the price" },
+                    { type: "number", message: "The price should be number" },
                   ]}
                 >
-                  <Input placeholder="" />
+                  <InputNumber className="w-full" placeholder="₺" />
                 </Form.Item>
               </div>
             </div>
